@@ -58,7 +58,6 @@ public class Requester{
 						
 						
 						if(!(message = input.nextLine()).equals(null)){//message = input.nextLine();
-							//put a login function here to load all the users currently online
 							sendMessage(message);
 						}
 						

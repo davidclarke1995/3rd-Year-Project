@@ -120,7 +120,7 @@ class Provider extends Thread{
 		}//end while
 		
 	}//end handleConversation
-	//function to return the user
+	//function to rerutn the user
 	public String getUsername(){
 		return userName;
 	}
