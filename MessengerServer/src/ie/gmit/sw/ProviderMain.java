@@ -90,13 +90,21 @@ class Provider extends Thread{
 				
 
 				message = (String)in.readObject();
+				// https://stackoverflow.com/questions/11726023/split-string-into-individual-words-java
+				String[] words = message.split(" ");
+				
+				if(words[0].equals("login")){
+					System.out.println("attempting login");
+					loginUser(words);
+					
+				}
+				else{
+					sendMessage("Server says ------- " + message);	
+					//System.out.println("first word: " +  words[0]);
+				}
 				
 				//Thread testing
-				
-				sendMessage("Server says ------- " + message);
-					
-				
-			
+				words = null;
 
 			}//end try
 			catch(ClassNotFoundException classnot){
@@ -106,6 +114,22 @@ class Provider extends Thread{
 				e.printStackTrace();
 			}
 		}//end while
+		
+	}//end handleConversation
+
+	public void loginUser(String[] words) {
+		if(words.length == 3){
+			String userName = words[1];
+			String password = words[2];
+			
+			if(userName.equals("username") && password.equals("password")){
+				sendMessage("You are logged in as: " + userName);
+			}
+			else{
+				sendMessage("Invalid username or password!");
+			}	
+		}//end if
+		
 		
 	}
 	
