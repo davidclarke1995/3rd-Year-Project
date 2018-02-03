@@ -6,7 +6,7 @@ public class Requester{
 	Socket requestSocket;
 	ObjectOutputStream out;
  	ObjectInputStream in;
- 	String message = "x";
+ 	String message = "";
  	Scanner input;
 	Requester(){
 
@@ -48,29 +48,23 @@ public class Requester{
 			
 
 			/////------------NORMAL CONVERSATION--------------
-			while(!message.equals(null)){
-				do{
-					try{
-						
-						message = (String)in.readObject();
-			
-						outPut(message);
-						
-						
-						if(!(message = input.nextLine()).equals(null)){//message = input.nextLine();
-							sendMessage(message);
-						}
-						
-						//message = (String)in.readObject();
+			do{
+				try{
+					
+					message = (String)in.readObject();
+		
+					outPut(message);
+					
+					
+					message = input.nextLine();
+					sendMessage(message);
+					//message = (String)in.readObject();
 
-					}
-					catch(ClassNotFoundException classNot){
-						System.err.println("data received in unknown format");
-					}
-				}while(!message.equals("FINISHED"));
-				
-			}
-			
+				}
+				catch(ClassNotFoundException classNot){
+					System.err.println("data received in unknown format");
+				}
+			}while(!message.equals("FINISHED"));
 		}
 		catch(UnknownHostException unknownHost){
 			System.err.println("You are trying to connect to an unknown host!");

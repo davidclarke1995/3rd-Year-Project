@@ -1,7 +1,6 @@
 package ie.gmit.sw;
 import java.net.ServerSocket;
 import java.net.Socket;
-import java.util.List;
 import java.io.*;
 import java.net.*;
 
@@ -28,7 +27,6 @@ class Provider extends Thread{
 	ObjectInputStream in;
 	Server server;
 	String message = "";
-	String userName;
 	Provider(){}
 	
 	Provider(Server server, Socket s) {
@@ -120,10 +118,7 @@ class Provider extends Thread{
 		}//end while
 		
 	}//end handleConversation
-	//function to rerutn the user
-	public String getUsername(){
-		return userName;
-	}
+
 	// loginUser function
 	public void loginUser(String[] words) {
 		if(words.length == 3){
@@ -131,13 +126,7 @@ class Provider extends Thread{
 			String password = words[2];
 			
 			if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan")){
-				this.userName = userName;
-				
-				List<Provider> providerList = server.getProviderList();
-				for(Provider provider : providerList){
-					provider.sendMessage(userName + " Is online");
-				}
-				//sendMessage("You are logged in as: " + userName);
+				sendMessage("You are logged in as: " + userName);
 			}
 			else{
 				sendMessage("Invalid username or password!");

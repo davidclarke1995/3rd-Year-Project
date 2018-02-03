@@ -136,6 +136,7 @@ class Provider extends Thread{
 				List<Provider> providerList = server.getProviderList();
 				for(Provider provider : providerList){
 					provider.sendMessage(userName + " Is online");
+					
 				}
 				//sendMessage("You are logged in as: " + userName);
 			}
