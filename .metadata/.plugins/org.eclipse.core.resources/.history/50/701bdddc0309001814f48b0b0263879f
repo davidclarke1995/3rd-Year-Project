@@ -47,13 +47,25 @@ class Provider extends Thread{
 			//4. The two parts communicate via the input and output streams
 			sendMessage("Please the phrase you wish to echo or the word FINISHED to exit");
 			//--------------------NORMAL CONVERSATION-----------------------
-			
-			
-			handleConversation();
-			
-			
-			
-		}//end try
+			while(!message.equals("FINISHED")){
+				
+				try{
+					
+
+					message = (String)in.readObject();
+					//Thread testing
+					
+					sendMessage("Server says ------- " + message);
+						
+					
+				
+
+				}//end try
+				catch(ClassNotFoundException classnot){
+					System.err.println("Data received in unknown format");
+				}
+			}//end while
+		}
 		catch(IOException ioException){
 			ioException.printStackTrace();
 		}
@@ -81,33 +93,6 @@ class Provider extends Thread{
 			ioException.printStackTrace();
 		}
 	}//end send message
-	
-	//conversation
-	void handleConversation(){
-		while(!message.equals("FINISHED")){
-			
-			try{
-				
-
-				message = (String)in.readObject();
-				
-				//Thread testing
-				
-				sendMessage("Server says ------- " + message);
-					
-				
-			
-
-			}//end try
-			catch(ClassNotFoundException classnot){
-				System.err.println("Data received in unknown format");
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
-		}//end while
-		
-	}
 	
 }
 
