@@ -25,7 +25,7 @@ private ArrayList<Provider> providerList = new ArrayList<>();
 			while(true){
 				Socket connection = null;
 				connection = providerSocket.accept();
-				Provider provider = new Provider(this, connection);
+				Provider provider = new Provider(connection);
 				providerList.add(provider);
 				provider.start();
 				

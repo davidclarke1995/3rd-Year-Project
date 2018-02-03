@@ -1,11 +1,10 @@
 package ie.gmit.sw;
 
-
+import java.awt.List;
 import java.io.IOException;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.ArrayList;
-import java.util.List;
 
 public class Server extends Thread{
 private int port;
@@ -15,7 +14,7 @@ private ArrayList<Provider> providerList = new ArrayList<>();
 		this.port = port;
 	}
 		
-	public List<Provider> getProviderList(){
+	public ArrayList<Provider> getProviderList(){
 		return providerList;
 	}
 	public void run(){
@@ -25,7 +24,7 @@ private ArrayList<Provider> providerList = new ArrayList<>();
 			while(true){
 				Socket connection = null;
 				connection = providerSocket.accept();
-				Provider provider = new Provider(this, connection);
+				Provider provider = new Provider(connection);
 				providerList.add(provider);
 				provider.start();
 				

@@ -25,13 +25,11 @@ class Provider extends Thread{
 	Socket connection = null;
 	ObjectOutputStream out;
 	ObjectInputStream in;
-	Server server;
 	String message = "";
 	Provider(){}
 	
-	Provider(Server server, Socket s) {
+	Provider(Socket s) {
 		connection = s;
-		this.server = server;
 	  }
 	public void run()
 	{
