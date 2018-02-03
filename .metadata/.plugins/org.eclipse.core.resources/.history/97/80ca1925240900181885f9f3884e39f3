@@ -8,13 +8,13 @@ public class ProviderMain {
 	public static void main(String args[]) throws IOException
 	{
 		//1. creating a server socket
-		int port = 8123;
+		ServerSocket providerSocket = new ServerSocket(8123);
 		
-		
-		Server server = new Server(port);
-		server.start();
-		
-		
+		while(true){
+			Socket connection = providerSocket.accept();
+			Provider server = new Provider(connection);
+			server.start();
+		}
 	}
 
 }// end main
@@ -110,7 +110,7 @@ class Provider extends Thread{
 			catch(ClassNotFoundException classnot){
 				System.err.println("Data received in unknown format");
 			} catch (IOException e) {
-				
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 		}//end while

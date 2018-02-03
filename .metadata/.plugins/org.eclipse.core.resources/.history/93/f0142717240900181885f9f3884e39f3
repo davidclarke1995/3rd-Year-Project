@@ -30,7 +30,7 @@ public class Requester{
 				message = (String)in.readObject();
 				System.out.println("server>" + message);
 			} catch (ClassNotFoundException e) {
-				
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
@@ -42,7 +42,7 @@ public class Requester{
 				sendMessage(message);
 				//message = (String)in.readObject();
 			} catch (ClassNotFoundException e) {
-				
+				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 			
