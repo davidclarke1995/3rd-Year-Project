@@ -123,7 +123,7 @@ class Provider extends Thread{
 			String userName = words[1];
 			String password = words[2];
 			
-			if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan")){
+			if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClark") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan")){
 				sendMessage("You are logged in as: " + userName);
 			}
 			else{

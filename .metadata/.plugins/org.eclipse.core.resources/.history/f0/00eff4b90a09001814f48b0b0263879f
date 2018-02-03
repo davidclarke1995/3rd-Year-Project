@@ -117,13 +117,12 @@ class Provider extends Thread{
 		
 	}//end handleConversation
 
-	// loginUser function
 	public void loginUser(String[] words) {
 		if(words.length == 3){
 			String userName = words[1];
 			String password = words[2];
 			
-			if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan")){
+			if(userName.equals("username") && password.equals("password")){
 				sendMessage("You are logged in as: " + userName);
 			}
 			else{
