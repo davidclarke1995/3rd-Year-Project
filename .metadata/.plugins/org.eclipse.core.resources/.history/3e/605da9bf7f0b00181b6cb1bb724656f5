@@ -53,9 +53,6 @@ public class Requester{
 					try{
 						
 						message = (String)in.readObject();
-						if(message.contains("Is online")){
-							System.out.println("load online users");
-						}
 			
 						outPut(message);
 						message = input.nextLine();
@@ -64,8 +61,10 @@ public class Requester{
 						
 							//put a login function here to load all the users currently online
 							//do a function to load an array of messages for the amount of users online
-							sendMessage(message);
-							
+							//sendMessage(message);
+							if(message.contains("login")){
+								System.out.println("Do login func");
+							}
 						
 						
 						//message = (String)in.readObject();
@@ -111,21 +110,6 @@ public class Requester{
 	void outPut(String myMessage) {
 		System.out.println("Server > " + myMessage);
 		
-	}
-	
-	//function to load users
-	void loadOnlineUsers(String user) throws ClassNotFoundException, IOException{
-		String[] users = null;
-		String message2;
-		int i = 0;
-		while(!(user.contains("Is online"))){
-			users[i] = user;
-			i++;
-			
-			user = (String)in.readObject();
-			System.out.println(users[i]);
-		}
-	
 	}
 	public static void main(String args[])
 	{

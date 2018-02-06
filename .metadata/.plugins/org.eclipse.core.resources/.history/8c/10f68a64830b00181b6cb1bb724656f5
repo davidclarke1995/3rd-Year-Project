@@ -113,7 +113,6 @@ public class Requester{
 		
 	}
 	
-	//function to load users
 	void loadOnlineUsers(String user) throws ClassNotFoundException, IOException{
 		String[] users = null;
 		String message2;

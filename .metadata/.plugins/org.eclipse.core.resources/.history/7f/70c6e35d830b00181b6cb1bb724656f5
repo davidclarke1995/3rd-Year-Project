@@ -113,7 +113,6 @@ public class Requester{
 		
 	}
 	
-	//function to load users
 	void loadOnlineUsers(String user) throws ClassNotFoundException, IOException{
 		String[] users = null;
 		String message2;
@@ -123,9 +122,7 @@ public class Requester{
 			i++;
 			
 			user = (String)in.readObject();
-			System.out.println(users[i]);
 		}
-	
 	}
 	public static void main(String args[])
 	{

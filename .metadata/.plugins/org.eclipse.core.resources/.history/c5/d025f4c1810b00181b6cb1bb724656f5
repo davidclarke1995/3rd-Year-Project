@@ -112,21 +112,6 @@ public class Requester{
 		System.out.println("Server > " + myMessage);
 		
 	}
-	
-	//function to load users
-	void loadOnlineUsers(String user) throws ClassNotFoundException, IOException{
-		String[] users = null;
-		String message2;
-		int i = 0;
-		while(!(user.contains("Is online"))){
-			users[i] = user;
-			i++;
-			
-			user = (String)in.readObject();
-			System.out.println(users[i]);
-		}
-	
-	}
 	public static void main(String args[])
 	{
 		Requester client = new Requester();
