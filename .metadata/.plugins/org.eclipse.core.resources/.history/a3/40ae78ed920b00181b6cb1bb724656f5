@@ -106,9 +106,9 @@ class Provider extends Thread{
 					//-------------------attempting a broadcast message--------------------------
 					List<Provider> userList = server.getProviderList();
 					for(Provider provider : userList){
-						provider.sendMessage("Broadcast says ------- " + message);
+						provider.sendMessage(userName + " Is online");
 					}
-					//sendMessage("Server says ------- " + message);	
+					sendMessage("Server says ------- " + message);	
 					//System.out.println("first word: " +  words[0]);
 				}
 				

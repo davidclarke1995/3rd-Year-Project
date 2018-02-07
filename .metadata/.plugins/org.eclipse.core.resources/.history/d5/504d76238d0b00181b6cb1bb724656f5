@@ -53,28 +53,20 @@ public class Requester{
 					try{
 						
 						message = (String)in.readObject();
-						
 						if(message.contains("Is online")){
 							//
-							outPut(message);
-							while(in.available()>0){
-								
-								message = (String)in.readObject();
-								outPut(message);
-							}
-							
 							//System.out.println("load online users");
 							//loadOnlineUsers(message);
 						}
 			
 						outPut(message);
-						message = input.nextLine();
+						//message = input.nextLine();
 						
 						
 						
 							//put a login function here to load all the users currently online
 							//do a function to load an array of messages for the amount of users online
-							sendMessage(message);
+							//sendMessage(message);
 							
 						
 						

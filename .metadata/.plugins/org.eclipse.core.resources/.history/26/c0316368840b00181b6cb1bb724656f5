@@ -53,18 +53,8 @@ public class Requester{
 					try{
 						
 						message = (String)in.readObject();
-						
 						if(message.contains("Is online")){
-							//
-							outPut(message);
-							while(in.available()>0){
-								
-								message = (String)in.readObject();
-								outPut(message);
-							}
-							
-							//System.out.println("load online users");
-							//loadOnlineUsers(message);
+							System.out.println("load online users");
 						}
 			
 						outPut(message);
@@ -133,8 +123,7 @@ public class Requester{
 			i++;
 			
 			user = (String)in.readObject();
-			//System.out.println(users[i]);
-			outPut(users[i]);
+			System.out.println(users[i]);
 		}
 	
 	}

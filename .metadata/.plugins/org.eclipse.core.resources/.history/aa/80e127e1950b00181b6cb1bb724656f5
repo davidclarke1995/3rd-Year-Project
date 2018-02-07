@@ -53,14 +53,11 @@ public class Requester{
 					try{
 						
 						message = (String)in.readObject();
-						
 						if(message.contains("Is online")){
 							//
-							outPut(message);
-							while(in.available()>0){
-								
-								message = (String)in.readObject();
+							while(!message.equals(null)){
 								outPut(message);
+								message = (String)in.readObject();
 							}
 							
 							//System.out.println("load online users");
