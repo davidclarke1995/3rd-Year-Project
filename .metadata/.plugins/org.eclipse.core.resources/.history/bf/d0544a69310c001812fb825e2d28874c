@@ -107,10 +107,7 @@ class Provider extends Thread{
 					List<Provider> userList = server.getProviderList();
 					for(Provider provider : userList){
 						if(provider.getUsername() != this.getUsername()){
-							if(!(message.equals(""))){
-								provider.sendMessage("Broadcast says ------- " + getUsername() + " " +  message);
-							}
-							
+							provider.sendMessage("Broadcast says ------- " + message);
 						}
 							
 						

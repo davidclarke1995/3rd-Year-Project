@@ -52,11 +52,8 @@ public class Requester{
 				do{
 					try{
 						//System.out.println(in.available());
-					//	if(!(in.available() == 0)){
-						while((message = (String)in.readObject()) != null){
-							
-							
-							outPut(message);
+						if(!(in.available() == 0)){
+							message = (String)in.readObject();
 						}
 					//	message = (String)in.readObject();
 						
@@ -75,16 +72,14 @@ public class Requester{
 						}
 						*/
 			
-					//	outPut(message);
-						if((message = input.nextLine()) != null){
-							sendMessage(message);
-						}
+						outPut(message);
+						message = input.nextLine();
 						
 						
 						
 							//put a login function here to load all the users currently online
 							//do a function to load an array of messages for the amount of users online
-							
+							sendMessage(message);
 							
 						
 						

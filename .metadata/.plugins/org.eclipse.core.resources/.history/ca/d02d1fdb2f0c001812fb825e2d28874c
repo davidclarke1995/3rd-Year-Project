@@ -107,10 +107,7 @@ class Provider extends Thread{
 					List<Provider> userList = server.getProviderList();
 					for(Provider provider : userList){
 						if(provider.getUsername() != this.getUsername()){
-							if(!(message.equals(""))){
-								provider.sendMessage("Broadcast says ------- " + getUsername() + " " +  message);
-							}
-							
+							provider.sendMessage("Broadcast says ------- " + message);
 						}
 							
 						
@@ -148,15 +145,11 @@ class Provider extends Thread{
 				this.userName = userName;
 				
 				List<Provider> providerList = server.getProviderList();
-				//Provider provider;
-				for(Provider provider : providerList){
+				Provider provider;
+				for(provider : providerList){
 					provider.sendMessage(userName + " Is online");
 				}
-				//Provider provider;
-				for(Provider provider : providerList){
-					provider.sendMessage(null);
-				}
-				
+				provider.sendMessage(null);
 				//sendMessage("You are logged in as: " + userName);
 			}
 			else{
