@@ -49,7 +49,7 @@ class Provider extends Thread{
 			in = new ObjectInputStream(connection.getInputStream());
 			sendMessage("Connection successful");
 			//4. The two parts communicate via the input and output streams
-			sendMessage("Please the phrase you wish to echo or the word FINISHED to exit");
+			sendMessage("Please type a phrase you wish to echo or the word 'FINISHED' to exit");
 			//--------------------NORMAL CONVERSATION-----------------------
 			
 			
