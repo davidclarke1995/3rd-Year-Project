@@ -9,8 +9,8 @@ public class ProviderMain {
 	public static void main(String args[]) throws IOException
 	{
 		//1. creating a server socket
+		int port = 8123;
 		int port1 = 2004;
-		
 		
 		Server server = new Server(port1);
 		server.start();
@@ -49,7 +49,7 @@ class Provider extends Thread{
 			in = new ObjectInputStream(connection.getInputStream());
 			sendMessage("Connection successful");
 			//4. The two parts communicate via the input and output streams
-			sendMessage("Please type a phrase you wish to echo or the word 'FINISHED' to exit");
+			sendMessage("Please the phrase you wish to echo or the word FINISHED to exit");
 			//--------------------NORMAL CONVERSATION-----------------------
 			
 			
@@ -168,5 +168,9 @@ class Provider extends Thread{
 	}
 	
 }
+
+
+
+
 
 
