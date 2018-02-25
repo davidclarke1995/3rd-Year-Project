@@ -19,8 +19,8 @@ public class ProviderMain {
 		int port = 8123;
 		int port1 = 2004;
 		
-		Server server = new Server(port);
-		//Server server = new Server(port1);
+		//Server server = new Server(port);
+		Server server = new Server(port1);
 		server.start();
 		
 		
@@ -186,37 +186,26 @@ class Provider extends Thread{
 			users.add(dave);
 			users.add(yogan);
 			boolean isUser = false;
-			for(User user: users){
-				//if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan"))
-				if(userName.equals(user.getUserName()) && password.equals(user.getPassword())){
-					this.userName = userName;
-					
-					List<Provider> providerList = server.getProviderList();
-					//Provider provider;
-					for(Provider provider : providerList){
-						provider.sendMessage(userName + " Is online");
-					}
-					//Provider provider;
-					
-					for(Provider provider : providerList){
-						provider.sendMessage(null);
-					}
-					isUser = true;
-					loggedIn = true;
-					//sendMessage("You are logged in as: " + userName);
-				}//end if for user validation
-				/*
-				else{
-					sendMessage("Invalid username or password!");
-				}
-				*/	
+			
+			if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan")){
+				this.userName = userName;
 				
+				List<Provider> providerList = server.getProviderList();
+				//Provider provider;
+				for(Provider provider : providerList){
+					provider.sendMessage(userName + " Is online");
+				}
+				//Provider provider;
+				
+				for(Provider provider : providerList){
+					provider.sendMessage(null);
+				}
+				loggedIn = true;
+				//sendMessage("You are logged in as: " + userName);
 			}
-			if(isUser == false){
+			else{
 				sendMessage("Invalid username or password!");
-			}
-			
-			
+			}	
 		}//end if
 		
 		
