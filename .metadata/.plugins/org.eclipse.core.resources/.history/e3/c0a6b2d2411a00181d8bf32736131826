@@ -4,7 +4,6 @@ import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
 import java.io.*;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.HashSet;
 import java.net.*;
@@ -178,13 +177,6 @@ class Provider extends Thread{
 		if(words.length == 3){
 			String userName = words[1];
 			String password = words[2];
-			User gary = new User("GaryConnelly", "gary");
-			User dave = new User("DaveClarke", "dave");
-			User yogan = new User("EoghanConner", "yogan");
-			ArrayList<User> users = new ArrayList<User>();
-			users.add(gary);
-			users.add(dave);
-			users.add(yogan);
 			
 			if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan")){
 				this.userName = userName;
