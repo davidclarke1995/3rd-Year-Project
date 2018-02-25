@@ -17,8 +17,8 @@ public class Requester{
 		input = new Scanner(System.in);
 		try{
 			//1. creating a socket to connect to the server
-			//requestSocket = new Socket("127.0.0.1", 8123);
-			requestSocket = new Socket("35.205.181.61", 2004);
+			requestSocket = new Socket("127.0.0.1", 8123);
+			//requestSocket = new Socket("35.205.181.61", 2004);
 			System.out.println("Connected to localhost in port 2004");
 			//2. get Input and Output streams
 			out = new ObjectOutputStream(requestSocket.getOutputStream());
