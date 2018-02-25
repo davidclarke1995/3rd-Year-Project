@@ -123,32 +123,23 @@ class Provider extends Thread{
 								}//end if
 							
 							}//end for
-						}//end if
-						else{
-							//-------------------attempting a broadcast message--------------------------
-							List<Provider> userList = server.getProviderList();
-							for(Provider provider : userList){
-								if(provider.getUsername() != this.getUsername()){
-									if(!(message.equals(""))){
-										provider.sendMessage("Broadcast message ------- " + getUsername() + " " +  message);
-									}//end if
-									
-								}//end if
-									
-								
-								
-							}//end for
-							
-						}//end else
+						}
 						
 						
-					}//end if logged in
-					else
-					{
-						sendMessage("please log in to continue");
 					}
-					
-					
+					//-------------------attempting a broadcast message--------------------------
+					List<Provider> userList = server.getProviderList();
+					for(Provider provider : userList){
+						if(provider.getUsername() != this.getUsername()){
+							if(!(message.equals(""))){
+								provider.sendMessage("Broadcast message ------- " + getUsername() + " " +  message);
+							}
+							
+						}
+							
+						
+						
+					}
 					sendMessage(null);
 					//sendMessage("Server says ------- " + message);	
 					//System.out.println("first word: " +  words[0]);
@@ -189,7 +180,7 @@ class Provider extends Thread{
 				for(Provider provider : providerList){
 					provider.sendMessage(null);
 				}
-				loggedIn = true;
+				
 				//sendMessage("You are logged in as: " + userName);
 			}
 			else{

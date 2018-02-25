@@ -189,7 +189,7 @@ class Provider extends Thread{
 				for(Provider provider : providerList){
 					provider.sendMessage(null);
 				}
-				loggedIn = true;
+				
 				//sendMessage("You are logged in as: " + userName);
 			}
 			else{
