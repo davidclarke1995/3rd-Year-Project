@@ -18,7 +18,6 @@ public class ProviderMain {
 		int port = 8123;
 		int port1 = 2004;
 		
-		//Server server = new Server(port);
 		Server server = new Server(port1);
 		server.start();
 		
@@ -187,7 +186,6 @@ class Provider extends Thread{
 					provider.sendMessage(userName + " Is online");
 				}
 				//Provider provider;
-				
 				for(Provider provider : providerList){
 					provider.sendMessage(null);
 				}

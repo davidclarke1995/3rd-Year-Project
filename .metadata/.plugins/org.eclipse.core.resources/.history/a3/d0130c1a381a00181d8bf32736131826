@@ -187,7 +187,6 @@ class Provider extends Thread{
 					provider.sendMessage(userName + " Is online");
 				}
 				//Provider provider;
-				
 				for(Provider provider : providerList){
 					provider.sendMessage(null);
 				}
