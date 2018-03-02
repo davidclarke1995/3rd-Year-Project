@@ -51,50 +51,23 @@ public class Requester{
 			while(!message.equals(null)){
 				do{
 					try{
-						//System.out.println(in.available());
-					//	if(!(in.available() == 0)){
+						//while the input stream is not null
 						while((message = (String)in.readObject()) != null){
 							
-							
 							outPut(message);
-						}
-					//	message = (String)in.readObject();
-						
-						/*
-						if(message.contains("Is online")){
-							//
-							outPut(message);
-							while(in.available()>0){
-								
-								message = (String)in.readObject();
-								outPut(message);
-							}
 							
-							//System.out.println("load online users");
-							//loadOnlineUsers(message);
 						}
-						*/
-			
-					//	outPut(message);
+					
+						//if something is typed in by the user, send that as a message back to the server
 						if((message = input.nextLine()) != null){
 							sendMessage(message);
-						}
-						
-						
-						
-							//put a login function here to load all the users currently online
-							//do a function to load an array of messages for the amount of users online
-							
-							
-						
-						
-						//message = (String)in.readObject();
+						}		
 
 					}
 					catch(ClassNotFoundException classNot){
 						System.err.println("data received in unknown format");
 					}
-				}while(!message.equals("FINISHED"));
+				}while(!message.equals("FINISHED"));//when the client types "FINISHED", exit the conversation loop to close the connection
 				
 			}
 			
@@ -117,10 +90,12 @@ public class Requester{
 			}
 		}
 	}
+	//access the output stream to send a message to the server for processing
 	void sendMessage(String msg)
 	{
 		try{
 			out.writeObject(msg);
+			//flush the output stream
 			out.flush();
 			System.out.println("client>" + msg);
 		}
@@ -128,6 +103,8 @@ public class Requester{
 			ioException.printStackTrace();
 		}
 	}
+	
+	////output the message with the "Server >" identifier to notify the client that it has come from the server
 	void outPut(String myMessage) {
 		System.out.println("Server > " + myMessage);
 		
@@ -154,3 +131,30 @@ public class Requester{
 		client.run();
 	}
 }
+
+//message = (String)in.readObject();
+
+/*
+if(message.contains("Is online")){
+	//
+	outPut(message);
+	while(in.available()>0){
+		
+		message = (String)in.readObject();
+		outPut(message);
+	}
+	
+	//System.out.println("load online users");
+	//loadOnlineUsers(message);
+}
+*/
+
+//	outPut(message);
+
+//put a login function here to load all the users currently online
+//do a function to load an array of messages for the amount of users online
+
+
+
+
+//message = (String)in.readObject();
