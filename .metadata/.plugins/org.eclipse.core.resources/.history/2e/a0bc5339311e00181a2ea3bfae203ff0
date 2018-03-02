@@ -171,23 +171,6 @@ class Provider extends Thread{
 		}//end while
 		
 	}//end handleConversation
-	
-	//create group method
-	private void createGroup(String[] words) {
-		String groupName = words[1];
-		
-		groupList.add(groupName);
-		//groups.add(groupName);
-		System.out.println("Successfully added group: " + groupName);
-	}
-	
-	//return the groups
-	public ArrayList<String> getGroups() {
-		return groupList;
-	}
-	
-	
-	
 	//function to return the user
 	public String getUsername(){
 		return userName;
