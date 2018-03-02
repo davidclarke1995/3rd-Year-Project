@@ -1,18 +1,26 @@
+//main
 package ie.gmit.sw;
 import java.net.ServerSocket;
 import java.net.Socket;
 import java.util.List;
 import java.io.*;
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.HashSet;
 import java.net.*;
+
+
+
 
 public class ProviderMain {
 	public static void main(String args[]) throws IOException
 	{
 		//1. creating a server socket
 		int port = 8123;
+		int port1 = 2004;
 		
-		
-		Server server = new Server(port);
+		//Server server = new Server(port);
+		Server server = new Server(port1);
 		server.start();
 		
 		
@@ -29,6 +37,8 @@ class Provider extends Thread{
 	Server server;
 	String message = "";
 	String userName;
+	boolean loggedIn = false;
+	private HashSet<String> groupSet = new HashSet<>();
 	Provider(){}
 	
 	Provider(Server server, Socket s) {
@@ -103,8 +113,46 @@ class Provider extends Thread{
 					
 				}
 				else{
-					List<Provider> userList = server.getProviderList();
-					sendMessage("Server says ------- " + message);	
+					if(loggedIn){
+						if(words[0].equals("DM")) {
+							List<Provider> userList = server.getProviderList();
+							for(Provider provider : userList){
+								if(provider.getUsername().equals(words[1])){
+									if(!(message.equals(""))){
+										provider.sendMessage("Private message ------- " + getUsername() + " " + message);
+									}//end if
+									
+								}//end if
+							
+							}//end for
+						}//end if
+						else{
+							//-------------------attempting a broadcast message--------------------------
+							List<Provider> userList = server.getProviderList();
+							for(Provider provider : userList){
+								if(provider.getUsername() != this.getUsername()){
+									if(!(message.equals(""))){
+										provider.sendMessage("Broadcast message ------- " + getUsername() + " " +  message);
+									}//end if
+									
+								}//end if
+									
+								
+								
+							}//end for
+							
+						}//end else
+						
+						
+					}//end if logged in
+					else
+					{
+						sendMessage("please log in to continue");
+					}
+					
+					
+					sendMessage(null);
+					//sendMessage("Server says ------- " + message);	
 					//System.out.println("first word: " +  words[0]);
 				}
 				
@@ -130,24 +178,49 @@ class Provider extends Thread{
 		if(words.length == 3){
 			String userName = words[1];
 			String password = words[2];
-			
-			if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan")){
-				this.userName = userName;
-				
-				List<Provider> providerList = server.getProviderList();
-				for(Provider provider : providerList){
-					provider.sendMessage(userName + " Is online");
+			User gary = new User("GaryConnelly", "gary");
+			User dave = new User("DaveClarke", "dave");
+			User yogan = new User("EoghanConner", "yogan");
+			ArrayList<User> users = new ArrayList<User>();
+			users.add(gary);
+			users.add(dave);
+			users.add(yogan);
+			boolean isUser = false;
+			for(User user: users){
+				//if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan"))
+				if(userName.equals(user.getUserName()) && password.equals(user.getPassword())){
+					this.userName = userName;
+					
+					List<Provider> providerList = server.getProviderList();
+					//Provider provider;
+					for(Provider provider : providerList){
+						provider.sendMessage(userName + " Is online");
+					}
+					//Provider provider;
+					
+					for(Provider provider : providerList){
+						provider.sendMessage(null);
+					}
+					isUser = true;
+					loggedIn = true;
+					//sendMessage("You are logged in as: " + userName);
+				}//end if for user validation
+				/*
+				else{
+					sendMessage("Invalid username or password!");
 				}
-				//sendMessage("You are logged in as: " + userName);
+				*/	
+				
 			}
-			else{
+			if(isUser == false){
 				sendMessage("Invalid username or password!");
-			}	
+			}
+			
+			
 		}//end if
 		
 		
 	}
 	
 }
-
 

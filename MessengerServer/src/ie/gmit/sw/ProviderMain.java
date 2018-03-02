@@ -38,7 +38,9 @@ class Provider extends Thread{
 	String message = "";
 	String userName;
 	boolean loggedIn = false;
-	private HashSet<String> groupSet = new HashSet<>();
+	//private HashSet<String> groupSet = new HashSet<>();
+	ArrayList<String> groupList = new ArrayList<String>();
+	 List<ArrayList<String>> groups = new ArrayList<ArrayList<String>>();
 	Provider(){}
 	
 	Provider(Server server, Socket s) {
