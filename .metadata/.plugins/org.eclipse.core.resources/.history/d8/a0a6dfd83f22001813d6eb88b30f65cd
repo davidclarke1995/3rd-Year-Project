@@ -82,7 +82,6 @@ class Provider extends Thread{
 				connection.close();
 				System.out.println("server> Finished");
 			}
-			//handle the exception
 			catch(IOException ioException){
 				ioException.printStackTrace();
 			}
