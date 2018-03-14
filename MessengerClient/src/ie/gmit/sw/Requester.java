@@ -63,7 +63,7 @@ public class Requester{
 							sendMessage(message);
 						}		
 
-					}
+					}//test commit 2
 					catch(ClassNotFoundException classNot){
 						System.err.println("data received in unknown format");
 					}
