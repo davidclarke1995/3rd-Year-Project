@@ -9,7 +9,7 @@ public class Requester{
  	String message = "x";
  	Scanner input;
 	Requester(){
-
+//test
 		
 	}
 	void run()
