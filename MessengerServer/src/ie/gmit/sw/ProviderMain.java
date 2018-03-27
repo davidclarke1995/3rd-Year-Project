@@ -26,7 +26,7 @@ public class ProviderMain {
 		
 	}
 
-}// end main
+}// end main method.
 
 
 class Provider extends Thread{
