@@ -1,0 +1,52 @@
+package ie.gmit.sw;
+
+import java.io.Console;
+import java.sql.*;
+import java.util.*;
+
+public class DbAccess {
+	
+	// https://www.javatpoint.com/example-to-connect-to-the-mysql-database
+	Scanner console = new Scanner(System.in);
+	int option = 0;
+	String name = "";
+	String userName = "";
+	String password = "";
+	
+	System.out.println("Select 1 to view contents\nSelect 2 to add to DB\nSelect 3 to delete\nSelect 4 to Sign in-1 to exit");
+	option = console.nextInt();
+
+	while (option != -1) {
+		if (option == 1) {
+
+			try {
+				Class.forName("com.mysql.jdbc.Driver");
+				Connection conn = DriverManager.getConnection("jdbc:mysql://35.231.15.180:3306/user", "root", "");
+				// System.out.println("1111");
+
+				Statement stmt = conn.createStatement();
+				ResultSet rs = stmt.executeQuery("SELECT * FROM userDetails");
+				// System.out.println("1111");
+				final ArrayList<User> users = new ArrayList<User>();
+
+				while (rs.next()) {
+					User user = new User();
+					user.setName(rs.getString(1));
+					user.setUserName(rs.getString(2));
+					user.setPassword(rs.getString(3));
+					users.add(user);
+
+					System.out.println("" + user.getName() + " " + user.getUserName() + " " + user.getPassword());
+					// System.out.println("1111");
+
+					// conn.close();
+				} // end while
+			} catch (Exception e) {
+				System.out.println(e);
+			} // end catch
+		} // end option 1 view
+	}
+	
+	
+	
+}
