@@ -40,7 +40,7 @@ public class NewLogin extends JFrame {
 	private JPasswordField passwordField;
 	private JTextArea textArea;
 	
-	private JPanel contentPane;
+	//private JPanel contentPane;
     Socket requestSocket;
 	ObjectOutputStream out;
 	ObjectInputStream in;
@@ -79,11 +79,140 @@ public class NewLogin extends JFrame {
 	public void initComponents() {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
-		contentPane = new JPanel();
-		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPane.setLayout(new BorderLayout(0, 0));
-		setContentPane(contentPane);
+		contentPaneMain = new JPanel();
+		contentPaneMain.setBorder(new EmptyBorder(5, 5, 5, 5));
+		contentPaneMain.setLayout(new BorderLayout(0, 0));
+		setContentPane(contentPaneMain);
 		
-	}
+		//functionality 
+		
+		JLabel lblUsername = new JLabel("UserName:");
+		
+		textField = new JTextField();
+		textField.setColumns(10);
+		
+		JLabel lblPassword = new JLabel("Password:");
+		
+		passwordField = new JPasswordField();
+		passwordField.setColumns(10);
+		
+		JLabel lblNewLabel = new JLabel();
+		lblNewLabel.setText("Enter your details");
+		
+		JButton btnLogin = new JButton("Login");
+		btnLogin.addActionListener(new ActionListener() {
+			//@SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
+				///////////////////////
+				String userName = textField.getText();
+				String password = passwordField.getText();
+				
+				
+				sendMessage("login " + userName + " " + password);
+				try {
+					message = (String) in.readObject();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				/*
+				if(message.equals("log")) {
+					MessageChatYurt myChat;
+					myChat = new MessageChatYurt();
+					myChat.setVisible(true);
+				}
+				
+				else{
+					//txtrHello.setText("Invalid username or password");
+					lblNewLabel.setText("Invalid username or password");
+				}
+				*/
+					
+				//hard coded user before connecting it to a database
+				/*
+				if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave")){
+					MessageChatYurt myChat;
+					myChat = new MessageChatYurt();
+					myChat.setVisible(true);
+					//myChat.run();
+					
+				}
+				else{
+					//txtrHello.setText("Invalid username or password");
+					lblNewLabel.setText("Invalid username or password");
+				}
+				*/
+				
+			}
 
-}
+			
+		});//end action listener
+		
+		
+		
+		
+		
+		
+		
+		GroupLayout gl_contentPaneMain = new GroupLayout(contentPaneMain);
+		gl_contentPaneMain.setHorizontalGroup(
+			gl_contentPaneMain.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPaneMain.createSequentialGroup()
+					.addGap(108)
+					.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.LEADING, false)
+						.addGroup(gl_contentPaneMain.createSequentialGroup()
+							.addComponent(lblPassword)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(passwordField))
+						.addGroup(gl_contentPaneMain.createSequentialGroup()
+							.addComponent(lblUsername)
+							.addPreferredGap(ComponentPlacement.RELATED)
+							.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)))
+					.addContainerGap(173, Short.MAX_VALUE))
+				.addGroup(gl_contentPaneMain.createSequentialGroup()
+					.addGap(82)
+					.addComponent(btnLogin, GroupLayout.DEFAULT_SIZE, 251, Short.MAX_VALUE)
+					.addGap(91))
+				.addGroup(gl_contentPaneMain.createSequentialGroup()
+					.addGap(184)
+					.addComponent(lblNewLabel)
+					.addContainerGap(194, Short.MAX_VALUE))
+		);
+		gl_contentPaneMain.setVerticalGroup(
+			gl_contentPaneMain.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPaneMain.createSequentialGroup()
+					.addContainerGap()
+					.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblUsername)
+						.addComponent(textField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.RELATED)
+					.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.LEADING)
+						.addComponent(lblPassword)
+						.addComponent(passwordField, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addComponent(btnLogin)
+					.addGap(18)
+					.addComponent(lblNewLabel)
+					.addContainerGap(121, Short.MAX_VALUE))
+		);
+		contentPaneMain.setLayout(gl_contentPaneMain);
+		
+		
+		
+		
+		
+
+	}//end init components
+	
+	//implement send message method
+	private void sendMessage(String string) {
+		// TODO Auto-generated method stub
+		
+	}//end send message
+		
+	}//end JFrame
+
+
