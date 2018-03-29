@@ -192,5 +192,61 @@ public class MessageChatYurt extends JFrame {
 		// TODO Auto-generated method stub
 		
 	}
+	
+	
+	//while chatting
+	private void whileChatting() throws IOException {
+    	SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>(){
+
+			@Override
+			protected Void doInBackground() throws Exception {
+				int i = 0;
+				do {
+					//testing
+					 login.outPutMessage("inside do while");
+					try {
+						//int data = in.available();
+						//if(data > 0){
+							//login.outPutMessage((String) data);
+						//while((message = (String)in.readObject()) != null){
+						login.outPutMessage(message);
+							message = (String) in.readObject();
+							login.outPutMessage("message recieved " + message);
+							if(!message.equals(null)) {
+								login.outPutMessage("inside if");
+								showMessage("\n FRIEND: " + message);
+							}
+							else {
+								login.outPutMessage("END DO");
+							}
+							
+						//}
+						
+							login.outPutMessage("OUTSIDE if");
+							
+						//}
+						
+					} catch (ClassNotFoundException e) {
+						
+						showMessage("\n message recieved in unknown format");
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						//e.printStackTrace();
+						showMessage("\n////////////// message recieved in unknown format");
+					}
+					
+				}while(!message.equals("FINISHED"));
+				login.outPutMessage("outside loop");
+				return null;
+			}
+    		
+    	};
+    	
+    	worker.execute();
+    		
+		
+    			
+		
+	}
 
 }
