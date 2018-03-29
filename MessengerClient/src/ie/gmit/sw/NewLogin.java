@@ -253,8 +253,15 @@ public class NewLogin extends JFrame {
 	}
 
 	//implement send message method
-	private void sendMessage(String string) {
-		// TODO Auto-generated method stub
+	private void sendMessage(String msg) {
+		try {
+			out.writeObject(msg);
+			// flush the output stream
+			out.flush();
+			System.out.println("client>" + msg);
+		} catch (IOException ioException) {
+			ioException.printStackTrace();
+		}
 		
 	}//end send message
 		
