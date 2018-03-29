@@ -190,9 +190,15 @@ public class MessageChatYurt extends JFrame {
 			
 	 }//end accept connections
 	
-	//show message method
-	public void showMessage(String string) {
-		// TODO Auto-generated method stub
+	//show message method - threaded
+	public void showMessage(String text) {
+		SwingUtilities.invokeLater(
+				new Runnable() {
+					public void run() {
+						textArea.append(text);
+					}
+				}
+				);
 		
 	}
 	
