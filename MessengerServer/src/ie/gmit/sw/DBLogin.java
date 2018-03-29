@@ -36,10 +36,43 @@ public class DBLogin extends Thread{
 	  }
 	  
 	 
-	  
+	  //constructor
 	  public DBLogin(Server server, Socket s) {
 			connection = s;
 			this.server = server;
 		  }
+	  
+	  //implement run method
+	  public void run() {
+		  try {
+
+		   
+			//2. Wait for connection
+				//System.out.println("Waiting for connection");
+			  Provider provider = new Provider();
+				
+				//System.out.println("Connection received from " + connection.getInetAddress().getHostName());
+			    provider.outPutMessage("Connection received from " + connection.getInetAddress().getHostName());
+				//3. get Input and Output streams
+				out = new ObjectOutputStream(connection.getOutputStream());
+				out.flush();
+				in = new ObjectInputStream(connection.getInputStream());
+				sendMessage("Connection successful");
+				//4. The two parts communicate via the input and output streams
+				sendMessage("Please the phrase you wish to echo or the word FINISHED to exit");
+				
+				//read username and password and output to console
+				message = (String)in.readObject();
+				provider.outPutMessage(message);
+				String[] words = message.split(" ");
+				provider.outPutMessage(words[1] + words[2]);
+		  }
+	  }
+
+
+	public void sendMessage(String string) {
+		// TODO Auto-generated method stub
+		
+	}
 
 }//end class

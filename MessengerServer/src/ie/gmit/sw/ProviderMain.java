@@ -269,6 +269,12 @@ class Provider extends Thread{
 		
 		
 	}
+
+	//for testing only
+		public void outPutMessage(String message) {
+			System.out.println(message);
+			
+		}
 	
 }
 
