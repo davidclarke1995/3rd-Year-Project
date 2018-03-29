@@ -67,11 +67,20 @@ public class MessageChatYurt extends JFrame {
 	 */
 	public MessageChatYurt() {
 		
-		//connect to the server at local host
-	    acceptConnections();
 		
-		//initialize components
-		initComponents();
+	    try {
+	    	//connect to the server at local host
+		    acceptConnections();
+			
+			//initialize components
+			initComponents();
+			
+			//read messages in from the server in a loop
+			whileChatting();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		
 	}
 
