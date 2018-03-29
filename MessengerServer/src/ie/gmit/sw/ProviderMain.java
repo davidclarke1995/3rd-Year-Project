@@ -161,12 +161,12 @@ class Provider extends Thread{
 							//for every connection to the server, send a message if they are logged in(if(loggedIn))
 							for(Provider provider : userList){
 								//send it to every instance, except the current instance(Because that would be just sending a message to yourself).
-								if(provider.getUsername() != this.getUsername()){
+								//if(provider.getUsername() != this.getUsername()){
 									if(!(message.equals(""))){
 										provider.sendMessage("Broadcast message ------- " + getUsername() + " " +  message);
 									}//end if
 									
-								}//end if
+								//}//end if
 									
 								
 								
