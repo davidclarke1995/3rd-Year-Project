@@ -34,6 +34,17 @@ import javax.swing.border.EmptyBorder;
 public class MessageChatYurt extends JFrame {
 
 	private JPanel contentPane;
+	
+	//private JPanel contentPane;
+    private JTextField textField;
+    private JTextArea textArea;
+    Socket requestSocket;
+	ObjectOutputStream out;
+	ObjectInputStream in;
+	String message = "x";
+	boolean contains = message.contains("x");
+	Scanner input;
+	NewLogin login = new NewLogin();
 
 	/**
 	 * Launch the application.
