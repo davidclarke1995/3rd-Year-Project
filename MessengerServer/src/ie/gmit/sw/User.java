@@ -7,7 +7,7 @@ package ie.gmit.sw;
   */
 
 
-
+/*
 public class User {
 	private String userName;
 	private String password;
@@ -19,6 +19,8 @@ public class User {
 		this.password = password;
 	}
 
+
+	
 
 	//getters and setters
 	public String getUserName() {
@@ -43,5 +45,6 @@ public class User {
 	
 	
 	
-
+*/
 }
+

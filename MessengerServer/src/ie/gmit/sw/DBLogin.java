@@ -73,6 +73,22 @@ public class DBLogin extends Thread{
 				//create connection to local database
 				 Class.forName("com.mysql.jdbc.Driver");
 				 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "");
+				 
+				 Statement stmt = conn.createStatement();
+				   ResultSet rs = stmt.executeQuery("SELECT * FROM userDetails");
+				   DbUser user = null;
+				   final ArrayList < DbUser > users = new ArrayList < DbUser > ();
+				   while (rs.next()) {
+				    user = new DbUser();
+				    user.setName(rs.getString(1));
+				    user.setUserName(rs.getString(2));
+				    user.setPassword(rs.getString(3));
+				    // System.out.println(user.getName() + " " + user.getPassword() + " " +
+				    // user.getPassword() );
+				    users.add(user);
+				    user = null;
+				   }
+				   
 		  } catch (Exception e) {
 			   e.printStackTrace();
 		  }
