@@ -66,6 +66,11 @@ public class DBLogin extends Thread{
 				provider.outPutMessage(message);
 				String[] words = message.split(" ");
 				provider.outPutMessage(words[1] + words[2]);
+				
+				String loginUserName = words[1];
+				String loginPassword = words[2];
+		  } catch (Exception e) {
+			   e.printStackTrace();
 		  }
 	  }
 
