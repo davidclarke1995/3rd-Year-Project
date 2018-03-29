@@ -197,10 +197,17 @@ public class MessageChatYurt extends JFrame {
 	}
 	
 	//send message method
-	private void sendMessage(String message) {
-		// TODO Auto-generated method stub
+	private void sendMessage(String msg) {
+		try {
+			out.writeObject(msg);
+			// flush the output stream
+			out.flush();
+			System.out.println("client>" + msg);
+		} catch (IOException ioException) {
+			ioException.printStackTrace();
+		}
 		
-	}
+	}//end send message
 	
 	
 	//while chatting
