@@ -118,7 +118,7 @@ public class NewLogin extends JFrame {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
-				/*
+				
 				if(message.equals("log")) {
 					MessageChatYurt myChat;
 					myChat = new MessageChatYurt();
@@ -129,7 +129,7 @@ public class NewLogin extends JFrame {
 					//txtrHello.setText("Invalid username or password");
 					lblNewLabel.setText("Invalid username or password");
 				}
-				*/
+				
 					
 				//hard coded user before connecting it to a database
 				/*
