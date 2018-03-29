@@ -35,7 +35,18 @@ import javax.swing.border.EmptyBorder;
 
 public class NewLogin extends JFrame {
 
+	private JPanel contentPaneMain;
+	private JTextField textField;
+	private JPasswordField passwordField;
+	private JTextArea textArea;
+	
 	private JPanel contentPane;
+    Socket requestSocket;
+	ObjectOutputStream out;
+	ObjectInputStream in;
+	String message = "x";
+	boolean contains = message.contains("x");
+	Scanner input;
 
 	/**
 	 * Launch the application.
