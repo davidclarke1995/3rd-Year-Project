@@ -67,6 +67,9 @@ public class MessageChatYurt extends JFrame {
 	 */
 	public MessageChatYurt() {
 		
+		//connect to the server at local host
+	    acceptConnections();
+		
 		//initialize components
 		initComponents();
 		
