@@ -247,10 +247,7 @@ public class NewLogin extends JFrame {
 	}
 	
 	
-	private void outPutMessage(String string) {
-		// TODO Auto-generated method stub
-		
-	}
+	
 
 	//implement send message method
 	private void sendMessage(String msg) {
@@ -264,6 +261,17 @@ public class NewLogin extends JFrame {
 		}
 		
 	}//end send message
+	
+///////////////////////////////////////////////////////////////////////////
+// This method is for testing purposes only
+/////////////////////////////////////////////////
+public void outPutMessage(String message) {
+System.out.println(message);
+}
+
+public void outPutInt(int i) {
+System.out.println(i);
+}
 		
 	}//end JFrame
 
