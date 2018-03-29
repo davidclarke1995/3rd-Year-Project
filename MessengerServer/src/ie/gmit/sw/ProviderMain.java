@@ -15,13 +15,21 @@ import java.net.*;
 public class ProviderMain {
 	public static void main(String args[]) throws IOException
 	{
-		//1. creating a server socket
-		int port = 8123;
-		int port1 = 2004;
+	
 		
-		//Server server = new Server(port);
-		Server server = new Server(port1);
-		server.start();
+		//1. creating a server socket
+				int port = 80;
+				int port1 = 2004;
+				int loginPort = 3333;
+				
+				//Server server = new Server(port);
+				Server Dbserver = new Server(port);
+				Dbserver.start();
+				Server server = new Server(port1);
+				server.start();
+				
+		
+		
 		
 		
 	}
