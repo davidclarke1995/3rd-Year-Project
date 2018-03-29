@@ -71,7 +71,7 @@ public class NewLogin extends JFrame {
 		
 		initComponents();
 		//connect to the server at local host
-	    //acceptConnections();
+	    acceptConnections();
 		//createEvents();
 		
 	}
@@ -207,6 +207,51 @@ public class NewLogin extends JFrame {
 
 	}//end init components
 	
+	
+	//accept connections method
+	private void acceptConnections() {
+		// 1. creating a socket to connect to the server
+		input = new Scanner(System.in);
+		try {
+			requestSocket = new Socket("35.187.182.242", 80);
+			// requestSocket = new Socket("35.205.181.61", 2004);
+			//System.out.println("Connected to localhost in port 2004");
+			outPutMessage("Connected to server yurt");
+			// 2. get Input and Output streams
+			out = new ObjectOutputStream(requestSocket.getOutputStream());
+			out.flush();
+			in = new ObjectInputStream(requestSocket.getInputStream());
+			
+			// connection successful
+			try {
+				message = (String) in.readObject();
+				//System.out.println("server>" + message);
+				outPutMessage("server>" + message);
+				message = (String) in.readObject();
+				outPutMessage("server>" + message);
+			} catch (ClassNotFoundException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+			
+			message = "x";
+		} catch (UnknownHostException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		
+	}
+	
+	
+	private void outPutMessage(String string) {
+		// TODO Auto-generated method stub
+		
+	}
+
 	//implement send message method
 	private void sendMessage(String string) {
 		// TODO Auto-generated method stub
