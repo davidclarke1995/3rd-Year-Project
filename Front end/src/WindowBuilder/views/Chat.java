@@ -22,6 +22,7 @@ public class Chat extends JFrame {
 
 private JPanel contentPane;
 private JTextField textField;
+//test cimmit 
 
 /**
 * Launch the application.
