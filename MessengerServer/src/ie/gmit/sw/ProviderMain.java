@@ -25,8 +25,8 @@ public class ProviderMain {
 				//Server server = new Server(port);
 				Server Dbserver = new Server(port);
 				Dbserver.start();
-				Server server = new Server(port1);
-				server.start();
+				//Server server = new Server(port1);
+				//server.start();
 				
 		
 		
@@ -52,9 +52,10 @@ class Provider extends Thread{
 	Provider(){}
 	
 	// provider constructor
-	Provider(Server server, Socket s) {
+	Provider(Server server, Socket s, String userName) {
 		connection = s;
 		this.server = server;
+		this.userName = userName;
 	  }
 	public void run()
 	{

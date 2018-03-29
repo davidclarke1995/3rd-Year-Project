@@ -16,6 +16,10 @@ private ArrayList<Provider> providerList = new ArrayList<>();
 		this.port = port;
 	}
 	
+	public Server() {
+		
+	}
+
 	//get a list of providers currently connected to the server for messaging purposes
 	public List<Provider> getProviderList(){
 		return providerList;
@@ -29,14 +33,17 @@ private ArrayList<Provider> providerList = new ArrayList<>();
 			//infinite loop while this server is running
 			while(true){
 				Socket connection = null;
-				//accept the connection
-				connection = providerSocket.accept();
-				//new instance of provider
-				Provider provider = new Provider(this, connection);
-				//add this instance to the providerList so that it can revieve messages once logged in
-				providerList.add(provider);
-				//start provider thread
-				provider.start();
+				//Provider provider1 = new Provider();
+				
+				 connection = providerSocket.accept();
+				//provider1.outPutMessage("port 8123");
+				if(port == 80) {
+					
+					
+					DBLogin login = new DBLogin(this, connection);
+					login.start();
+					
+				}
 				
 			}
 		} catch (IOException e1) {
@@ -45,6 +52,46 @@ private ArrayList<Provider> providerList = new ArrayList<>();
 		}
 		
 	}
+	
+	public void startProviderMain(String userName) {
+		Provider provider1 = new Provider();
+		provider1.outPutMessage("inside method + " + userName);
+		ServerSocket providerSocket;
+		try {
+			providerSocket = new ServerSocket(2004);
+			while(true){
+				
+				Socket connection = null;
+				//Provider provider1 = new Provider();
+				
+				 connection = providerSocket.accept();
+				//provider1.outPutMessage("port 8123");
+				//if(port == 2004) {
+					
+					
+					Provider provider = new Provider(this, connection, userName);
+					providerList.add(provider);
+					provider.start();
+					
+				//}
+				
+				
+					
+					
+				
+				
+				
+				
+				
+			}
+		} catch (IOException e1) {
+			
+			e1.printStackTrace();
+		}
+		
+		
+		
+	}	
 		
 	
 
