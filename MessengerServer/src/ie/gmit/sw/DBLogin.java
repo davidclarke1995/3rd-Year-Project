@@ -96,6 +96,8 @@ public class DBLogin extends Thread{
 					     loginSuccess = true;
 					     provider.outPutMessage("logged in");
 					     sendMessage("log");
+					     Server server = new Server();
+					     server.startProviderMain(loginUserName);
 
 					    } else {
 					    	provider.outPutMessage("nope");
