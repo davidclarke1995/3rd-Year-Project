@@ -7,7 +7,7 @@ package ie.gmit.sw;
   */
 
 
-/*
+
 public class User {
 	private String userName;
 	private String password;
@@ -45,6 +45,6 @@ public class User {
 	
 	
 	
-*/
+
 }
 

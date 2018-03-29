@@ -104,15 +104,29 @@ public class DBLogin extends Thread{
 
 					   }//end for
 				   
+				   
+				   
 		  } catch (Exception e) {
 			   e.printStackTrace();
 		  }
 	  }
 
 
-	public void sendMessage(String string) {
-		// TODO Auto-generated method stub
-		
-	}
+	  //to send a message back to the client 
+	  public void sendMessage(String msg) {
+			{
+				try{
+					out.writeObject(msg);
+					out.flush();
+					//System.out.println("server>" + msg);
+				}
+				catch(IOException ioException){
+					ioException.printStackTrace();
+				}
+			
+		}
+
+
+		}
 
 }//end class
