@@ -69,6 +69,10 @@ public class DBLogin extends Thread{
 				
 				String loginUserName = words[1];
 				String loginPassword = words[2];
+				
+				//create connection to local database
+				 Class.forName("com.mysql.jdbc.Driver");
+				 Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "");
 		  } catch (Exception e) {
 			   e.printStackTrace();
 		  }
