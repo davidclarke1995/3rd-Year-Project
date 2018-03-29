@@ -89,6 +89,21 @@ public class DBLogin extends Thread{
 				    user = null;
 				   }
 				   
+				   //for authenticating login
+				   for (DbUser u: users) {
+
+					    if (u.getUserName().equals(loginUserName) && u.getPassword().equals(loginPassword)) {
+					     loginSuccess = true;
+					     provider.outPutMessage("logged in");
+					     sendMessage("log");
+
+					    } else {
+					    	provider.outPutMessage("nope");
+					    	sendMessage("log");
+					    }
+
+					   }//end for
+				   
 		  } catch (Exception e) {
 			   e.printStackTrace();
 		  }
