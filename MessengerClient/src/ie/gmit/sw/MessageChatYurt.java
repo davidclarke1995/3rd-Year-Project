@@ -273,7 +273,7 @@ public class MessageChatYurt extends JFrame {
 							//-----------------------changed 02/04/2018-----comment out if not null
 							//if(!message.equals(null)) {
 								login.outPutMessage("inside if");
-								showMessage("\n FRIEND: " + message);
+								showMessage("\n" + message);
 							//}
 							//else {
 							//	login.outPutMessage("END DO");
