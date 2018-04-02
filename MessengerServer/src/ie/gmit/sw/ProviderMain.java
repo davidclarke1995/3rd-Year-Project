@@ -171,6 +171,35 @@ class Provider extends Thread{
 						else if(words[0].equals("RETURNGROUPS")) {
 							System.out.println("Groups: " + getGroups());
 						}
+						
+						else if(words[0].equals("#SHOW")) {
+							System.out.println("inside #SHOW");
+							//------------------attemt to load online users-------------
+							List<Provider> userList = server.getProviderList();
+							String onlineUsers = "";
+							for(Provider provider : userList){
+								//add username to the string
+								onlineUsers.concat( " " + provider.getUsername());	
+							}//end for
+							System.out.println("between llops ///// + " + onlineUsers);
+							for(Provider provider: userList) {
+								
+								if(provider.getUsername() == this.getUsername()){
+									//if(!(message.equals(""))){
+									System.out.println("inside second for loop");
+									System.out.println("///" + onlineUsers);
+										//provider.sendMessage(onlineUsers);
+									provider.sendMessage("echo");
+									//}//end if
+									
+								}//end if
+								
+							}
+							
+						}//end #SHOW
+						
+						
+						
 						else{
 							//-------------------attempting a broadcast message--------------------------
 							List<Provider> userList = server.getProviderList();
