@@ -45,6 +45,8 @@ public class MessageChatYurt extends JFrame {
 	boolean contains = message.contains("x");
 	Scanner input;
 	NewLogin login = new NewLogin();
+	private JScrollPane scrollPane;
+	private JScrollPane scrollPane_1;
 
 	/**
 	 * Launch the application.
@@ -122,13 +124,21 @@ public class MessageChatYurt extends JFrame {
             } //end actionlistener method
         ); //end action listener
         
+        scrollPane = new JScrollPane(textArea);
+        scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
+        scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        //contentPane.add(scrollPane);
+        
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
+        
+       // scrollPane_1 = new JScrollPane();
+       // contentPane.add(scrollPane_1, BorderLayout.NORTH);
         gl_contentPane.setHorizontalGroup(
             gl_contentPane.createParallelGroup(Alignment.LEADING)
             .addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
                 .addContainerGap(62, Short.MAX_VALUE)
                 .addGroup(gl_contentPane.createParallelGroup(Alignment.LEADING)
-                    .addComponent(textArea, Alignment.TRAILING)
+                    .addComponent(scrollPane, Alignment.TRAILING)
                     .addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
                         .addComponent(textField, GroupLayout.PREFERRED_SIZE, 289, GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(ComponentPlacement.RELATED)
@@ -140,7 +150,7 @@ public class MessageChatYurt extends JFrame {
             gl_contentPane.createParallelGroup(Alignment.LEADING)
             .addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
                 .addContainerGap(32, Short.MAX_VALUE)
-                .addComponent(textArea, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)
+                .addComponent(scrollPane, GroupLayout.PREFERRED_SIZE, 159, GroupLayout.PREFERRED_SIZE)
                 .addGap(18)
                 .addGroup(gl_contentPane.createParallelGroup(Alignment.BASELINE)
                     .addComponent(btnSend)
@@ -158,7 +168,7 @@ public class MessageChatYurt extends JFrame {
 	    	// 1. creating a socket to connect to the server
 	    	input = new Scanner(System.in);
 			try {
-				requestSocket = new Socket("35.205.81.137", 2004);
+				requestSocket = new Socket("35.189.235.6", 2004);
 				// requestSocket = new Socket("35.205.181.61", 2004);
 				//System.out.println("Connected to localhost in port 2004");
 				login.outPutMessage("Connected to localhost in port 2004");
@@ -234,13 +244,16 @@ public class MessageChatYurt extends JFrame {
 						login.outPutMessage(message);
 							message = (String) in.readObject();
 							login.outPutMessage("message recieved " + message);
-							if(!message.equals(null)) {
+							
+							//-----------------------changed 02/04/2018-----comment out if not null
+							//if(!message.equals(null)) {
 								login.outPutMessage("inside if");
 								showMessage("\n FRIEND: " + message);
-							}
-							else {
-								login.outPutMessage("END DO");
-							}
+							//}
+							//else {
+							//	login.outPutMessage("END DO");
+							//}
+								//-----------------------(end)changed 02/04/2018-----comment out if not null
 							
 						//}
 						

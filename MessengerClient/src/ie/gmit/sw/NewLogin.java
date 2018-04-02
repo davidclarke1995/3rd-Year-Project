@@ -213,7 +213,7 @@ public class NewLogin extends JFrame {
 		// 1. creating a socket to connect to the server
 		input = new Scanner(System.in);
 		try {
-			requestSocket = new Socket("35.205.81.137", 80);
+			requestSocket = new Socket("35.189.235.6", 80);
 			// requestSocket = new Socket("35.205.181.61", 2004);
 			//System.out.println("Connected to localhost in port 2004");
 			outPutMessage("Connected to server yurt");
