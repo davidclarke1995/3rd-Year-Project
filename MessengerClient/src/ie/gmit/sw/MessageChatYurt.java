@@ -129,7 +129,7 @@ public class MessageChatYurt extends JFrame {
                 public void actionPerformed(ActionEvent arg0) {
                     if (!(textField.getText().equals(""))) {
                         String message = textField.getText();
-                        textArea.append("\t\t\t--> " + "You: " + "\n");
+                        textArea.append("\n\t\t\t--> " + "You: " + "\n");
                        // textArea.append(message + "\n");
                         //method for appending the text
                         showMessage(message + "\n");
