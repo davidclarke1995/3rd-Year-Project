@@ -154,7 +154,7 @@ class Provider extends Thread{
 							for(Provider provider : userList){
 								if(provider.getUsername().equals(words[1])){
 									if(!(message.equals(""))){
-										provider.sendMessage("Private message ------- " + getUsername() + " " + message);
+										provider.sendMessage("Private message - " + getUsername() + ": " + message);
 									}//end if
 									
 								}//end if
@@ -179,7 +179,7 @@ class Provider extends Thread{
 								//send it to every instance, except the current instance(Because that would be just sending a message to yourself).
 								//if(provider.getUsername() != this.getUsername()){
 									if(!(message.equals(""))){
-										provider.sendMessage("Broadcast message ------- " + getUsername() + " " +  message);
+										provider.sendMessage("Broadcast message - " + getUsername() + ": " +  message);
 									}//end if
 									
 								//}//end if
