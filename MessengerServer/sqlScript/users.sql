@@ -14,4 +14,8 @@ INSERT INTO userDetails (userName, name, password) VALUES ('Harry12', 'Harry Kea
 ('DarthVader', 'Anakin Skywalker','password223'),
 ('PickleRick', 'Rick Sanchez','password778'),
 ('Windows', 'Bill Gates','password8'),
-('BillyTheKid', 'Billy Drake','password55');
+('BillyTheKid', 'Billy Drake','password55'),
+('Cooney', 'Darragh Collins','password56'),
+('Ger', 'Gerry Keane','password'),
+('Mags', 'Maggie Grady','password556'),
+('Tommy', 'Thomas Selby','password556');
