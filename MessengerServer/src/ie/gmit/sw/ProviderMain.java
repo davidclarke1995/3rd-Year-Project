@@ -127,16 +127,31 @@ class Provider extends Thread{
 					
 					System.out.println("////////////////////////////" + words[1]);
 					this.userName = words[1];
+					
+					//-------------------online status--------------------------
+					List<Provider> userList = server.getProviderList();
+					for(Provider provider : userList){
+						if(provider.getUsername() != this.getUsername()){
+							if(!(message.equals(""))){
+								provider.sendMessage(getUsername() + " " +  "is online!");
+							}//end if
+							
+						}//end if
+							
+						
+						
+					}//end for
 				}
 				
 				
-				
+				/*
 				//checking if the first word is login
 				if(words[0].equals("login") && words.length == 3){
 					System.out.println("attempting login");
 					loginUser(words);
 					
 				}
+				*/
 				//test commit 
 				else{
 					if(loggedIn){
