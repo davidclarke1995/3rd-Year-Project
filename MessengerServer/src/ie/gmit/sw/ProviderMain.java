@@ -141,17 +141,8 @@ class Provider extends Thread{
 						
 						
 					}//end for
-				}
+				}//end online status
 				
-				
-				/*
-				//checking if the first word is login
-				if(words[0].equals("login") && words.length == 3){
-					System.out.println("attempting login");
-					loginUser(words);
-					
-				}
-				*/
 				//test commit 
 				else{
 					if(loggedIn){
