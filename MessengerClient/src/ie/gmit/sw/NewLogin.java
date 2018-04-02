@@ -120,8 +120,9 @@ public class NewLogin extends JFrame {
 				}
 				
 				if(message.equals("log")) {
+					outPutMessage("////////////////////////////////" + userName);
 					MessageChatYurt myChat;
-					myChat = new MessageChatYurt();
+					myChat = new MessageChatYurt(userName);
 					myChat.setVisible(true);
 				}
 				

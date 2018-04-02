@@ -122,6 +122,15 @@ class Provider extends Thread{
 				// https://stackoverflow.com/questions/11726023/split-string-into-individual-words-java
 				String[] words = message.split(" ");
 				
+				//to append the username to the text
+				if(words[0].equals("USER")) {
+					
+					System.out.println("////////////////////////////" + words[1]);
+					this.userName = words[1];
+				}
+				
+				
+				
 				//checking if the first word is login
 				if(words[0].equals("login") && words.length == 3){
 					System.out.println("attempting login");

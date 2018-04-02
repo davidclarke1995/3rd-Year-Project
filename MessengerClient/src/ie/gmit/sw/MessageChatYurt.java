@@ -32,12 +32,15 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
 public class MessageChatYurt extends JFrame {
+	
+	
 
 	private JPanel contentPane;
 	
 	//private JPanel contentPane;
     private JTextField textField;
     private JTextArea textArea;
+    private String userName;
     Socket requestSocket;
 	ObjectOutputStream out;
 	ObjectInputStream in;
@@ -47,6 +50,16 @@ public class MessageChatYurt extends JFrame {
 	NewLogin login = new NewLogin();
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
+	
+	
+
+	public String getUserName() {
+		return userName;
+	}
+
+	public void setUserName(String userName) {
+		this.userName = userName;
+	}
 
 	/**
 	 * Launch the application.
@@ -55,8 +68,8 @@ public class MessageChatYurt extends JFrame {
 		EventQueue.invokeLater(new Runnable() {
 			public void run() {
 				try {
-					MessageChatYurt frame = new MessageChatYurt();
-					frame.setVisible(true);
+					//MessageChatYurt frame = new MessageChatYurt();
+					//frame.setVisible(true);
 				} catch (Exception e) {
 					e.printStackTrace();
 				}
@@ -67,10 +80,19 @@ public class MessageChatYurt extends JFrame {
 	/**
 	 * Create the frame.
 	 */
-	public MessageChatYurt() {
+	public MessageChatYurt(String userName) {
+		
+		this.userName = userName;
+		
+		login.outPutMessage("USER " + userName);
+		//sendMessage("USER " + userName);
 		
 		
 	    try {
+	    	
+	    	//sendMessage("USER " + userName);
+	    	
+	    	
 	    	//connect to the server at local host
 		    acceptConnections();
 			
@@ -184,6 +206,8 @@ public class MessageChatYurt extends JFrame {
 					login.outPutMessage("server>" + message);
 					message = (String) in.readObject();
 					login.outPutMessage("server>" + message);
+					login.outPutMessage("////inside do while " + getUserName());
+					sendMessage("USER " + getUserName());
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -213,8 +237,9 @@ public class MessageChatYurt extends JFrame {
 	}
 	
 	//send message method
-	private void sendMessage(String msg) {
+	public void sendMessage(String msg) {
 		try {
+			login.outPutMessage(msg);
 			out.writeObject(msg);
 			// flush the output stream
 			out.flush();
@@ -235,7 +260,7 @@ public class MessageChatYurt extends JFrame {
 				int i = 0;
 				do {
 					//testing
-					 login.outPutMessage("inside do while");
+					 login.outPutMessage("inside do while ");
 					try {
 						//int data = in.available();
 						//if(data > 0){
