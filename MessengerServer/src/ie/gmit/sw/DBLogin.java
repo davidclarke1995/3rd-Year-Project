@@ -102,7 +102,7 @@ public class DBLogin extends Thread{
 					    } else {
 					    	provider.outPutMessage("nope");
 					    	sendMessage("log");
-					    }
+					    }//test
 
 					   }//end for
 				   
