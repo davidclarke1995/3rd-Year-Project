@@ -183,7 +183,7 @@ class Provider extends Thread{
 					}
 					
 					//sending a null message in order to continue the loop on the client side
-					sendMessage(null);
+					//sendMessage(null);
 					
 				}
 				
