@@ -2,6 +2,12 @@ package ie.gmit.sw;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.io.IOException;
+import java.io.ObjectInputStream;
+import java.io.ObjectOutputStream;
+import java.net.Socket;
+import java.net.UnknownHostException;
+import java.util.Scanner;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -18,6 +24,13 @@ public class Delete extends JFrame {
 	private JPanel contentPane;
 	private JTextField textField;
 	private JPasswordField passwordField;
+	
+	 Socket requestSocket;
+		ObjectOutputStream out;
+		ObjectInputStream in;
+		String message = "x";
+		boolean contains = message.contains("x");
+		Scanner input;
 
 	/**
 	 * Launch the application.
@@ -105,6 +118,62 @@ public class Delete extends JFrame {
 			);
 			contentPane.setLayout(gl_contentPane);
 		}
+		
+		private void acceptConnections() {
+			// 1. creating a socket to connect to the server
+					input = new Scanner(System.in);
+					try {//
+						requestSocket = new Socket("35.190.197.5", 80);
+						// requestSocket = new Socket("35.205.181.61", 2004);
+						//System.out.println("Connected to localhost in port 2004");
+						outPutMessage("Connected to server yurt");
+						// 2. get Input and Output streams
+						out = new ObjectOutputStream(requestSocket.getOutputStream());
+						out.flush();
+						in = new ObjectInputStream(requestSocket.getInputStream());
+						
+						// connection successful
+						try {
+							message = (String) in.readObject();
+							//System.out.println("server>" + message);
+							outPutMessage("server>" + message);
+							message = (String) in.readObject();
+							outPutMessage("server>" + message);
+						} catch (ClassNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+						message = "x";
+					} catch (UnknownHostException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					} catch (IOException e) {
+						// TODO Auto-generated catch block
+						e.printStackTrace();
+					}
+					
+			
+		}//end accept connections
+		
+		public void sendMessage(String msg) {
+			try {
+				out.writeObject(msg);
+				// flush the output stream
+				out.flush();
+				System.out.println("client>" + msg);
+			} catch (IOException ioException) {
+				ioException.printStackTrace();
+			}
+			
+		}
+		
+		public void outPutMessage(String msg) {
+			System.out.println(msg);
+			
+		}//end output message
+		
+		
 		
 
 }
