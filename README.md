@@ -18,7 +18,32 @@ The purpose of the System Requirements document is to specify the overall system
 
 System uses JFrame Java Platform that adds support for the JFC/Swing component architecture
 
+### Minimum Functional Requirments
+
+- System must allow users to log into the system with a username and password.
+- System must allow people to send a broadcast message to everyone connected to the server on the system.
+- System must give people the option to send a private message to specific people on the system. 
+- Users must have the option to delete themselves from the system.
+
+### Non Functional Requirments
+
+- Login page must be very simple and easy to use.
+- Chat section of the app must be basic enough that somone who has never used a computer before should be able to use this.
+- Develop the database to 3rd Normal Form for the implementation.
+
 ## Technology Used and Why
+
+### Java
+Java is a general purpose programming language that is designed to have as few implementation dependecies as possible. It is intended to allow developers to "Write once, Run anywhere", meaning that complied java code can run on all platforms without the need for recompilation. Java is complied to bytecode that can run on any Java Vitural Machine (JVM). As of 2016 Java is the most popular programming language in the world with a reported 9 million developers worldwide. Java is largely used for server client based applications used by both Google and Facebook receiving 1.6 and 1.1 billion visitors respectively monthly. We decided to use java for its versatility and large amount of online resources available. Its also the programming language that we are all very familiar with and having completed multiple projects during our time in GMIT eg. Porta cipher, database interfaces, Document simiality API.
+
+### MySQL
+MySQL is an open-source relational database management system. Its name is a combination of "My", the name of co-founder Michael Widenius's daughter, and "SQL", the abbreviation for Structured Query Language. At the time of writing of this README MySql is the second most popular database languaging for relational databases (https://db-engines.com/en/ranking). We picked MySql for its reliability and its popularlity amomng the programming community, it is also very easy to understand and has an abundance of resoucres both online and locally.
+
+### Google Cloud
+Google Cloud Platform, offered by Google, is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search and YouTube.
+Google Cloud Platform, offered by Google, is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search and YouTube.
+
+
 
 ## Architecture of the Solution
 ## Design Methodology
