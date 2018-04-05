@@ -43,6 +43,14 @@ public class StartUpWindowPractice extends JFrame {
 		setContentPane(contentPane);
 		
 		JButton btnLogin = new JButton("Login");
+		//add action listener to launch login page when login button is clicked
+		btnLogin.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				NewLogin login;
+				login = new NewLogin();
+				login.setVisible(true);
+			}
+		});
 		
 		JButton btnNewButton = new JButton("Sign Up");
 		btnNewButton.addActionListener(new ActionListener() {
