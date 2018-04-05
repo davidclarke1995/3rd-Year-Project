@@ -15,6 +15,11 @@ import javax.swing.JPasswordField;
 import javax.swing.JTextArea;
 import javax.swing.JTextField;
 import javax.swing.border.EmptyBorder;
+import javax.swing.GroupLayout;
+import javax.swing.GroupLayout.Alignment;
+import javax.swing.JLabel;
+import javax.swing.LayoutStyle.ComponentPlacement;
+import javax.swing.JButton;
 
 public class Signup extends JFrame {
 
@@ -31,6 +36,9 @@ public class Signup extends JFrame {
 	String message = "x";
 	boolean contains = message.contains("x");
 	Scanner input;
+	private JTextField textField_1;
+	private JTextField textField_2;
+	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
@@ -68,8 +76,73 @@ public class Signup extends JFrame {
 		setBounds(100, 100, 450, 300);
 		contentPaneMain = new JPanel();
 		contentPaneMain.setBorder(new EmptyBorder(5, 5, 5, 5));
-		contentPaneMain.setLayout(new BorderLayout(0, 0));
 		setContentPane(contentPaneMain);
+		
+		JLabel lblSignUpTop = new JLabel("Sign up top use the system");
+		
+		JLabel lblName = new JLabel("Name:");
+		
+		JLabel lblPassword = new JLabel("Password:");
+		
+		textField_1 = new JTextField();
+		textField_1.setColumns(10);
+		
+		textField_2 = new JTextField();
+		textField_2.setColumns(10);
+		
+		JLabel lblUsername = new JLabel("Username:");
+		
+		passwordField_1 = new JPasswordField();
+		
+		JButton btnSignMeUp = new JButton("Sign me up!");
+		GroupLayout gl_contentPaneMain = new GroupLayout(contentPaneMain);
+		gl_contentPaneMain.setHorizontalGroup(
+			gl_contentPaneMain.createParallelGroup(Alignment.LEADING)
+				.addGroup(Alignment.TRAILING, gl_contentPaneMain.createSequentialGroup()
+					.addContainerGap(38, Short.MAX_VALUE)
+					.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.TRAILING)
+						.addGroup(Alignment.LEADING, gl_contentPaneMain.createSequentialGroup()
+							.addGap(90)
+							.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.LEADING, false)
+								.addGroup(gl_contentPaneMain.createSequentialGroup()
+									.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.LEADING)
+										.addComponent(lblName, GroupLayout.PREFERRED_SIZE, 51, GroupLayout.PREFERRED_SIZE)
+										.addComponent(lblUsername))
+									.addGap(18)
+									.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.LEADING, false)
+										.addComponent(textField_2)
+										.addComponent(textField_1, GroupLayout.DEFAULT_SIZE, 111, Short.MAX_VALUE)))
+								.addGroup(gl_contentPaneMain.createSequentialGroup()
+									.addComponent(lblPassword)
+									.addGap(18)
+									.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.LEADING)
+										.addComponent(btnSignMeUp)
+										.addComponent(passwordField_1)))))
+						.addComponent(lblSignUpTop))
+					.addGap(115))
+		);
+		gl_contentPaneMain.setVerticalGroup(
+			gl_contentPaneMain.createParallelGroup(Alignment.LEADING)
+				.addGroup(gl_contentPaneMain.createSequentialGroup()
+					.addGap(21)
+					.addComponent(lblSignUpTop)
+					.addGap(35)
+					.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblName)
+						.addComponent(textField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addPreferredGap(ComponentPlacement.UNRELATED)
+					.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.BASELINE)
+						.addComponent(textField_2, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE)
+						.addComponent(lblUsername))
+					.addGap(11)
+					.addGroup(gl_contentPaneMain.createParallelGroup(Alignment.BASELINE)
+						.addComponent(lblPassword)
+						.addComponent(passwordField_1, GroupLayout.PREFERRED_SIZE, GroupLayout.DEFAULT_SIZE, GroupLayout.PREFERRED_SIZE))
+					.addGap(18)
+					.addComponent(btnSignMeUp)
+					.addContainerGap(58, Short.MAX_VALUE))
+		);
+		contentPaneMain.setLayout(gl_contentPaneMain);
 	}
 	
 	private void acceptConnections() {
@@ -113,8 +186,6 @@ public class Signup extends JFrame {
 		// TODO Auto-generated method stub
 		
 	}//end output message
-	
-	
 }
 
 
