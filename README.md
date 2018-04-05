@@ -34,7 +34,7 @@ System uses JFrame Java Platform that adds support for the JFC/Swing component a
 ## Technology Used and Why
 
 ### Java
-Java is a general purpose programming language that is designed to have as few implementation dependecies as possible. It is intended to allow developers to "Write once, Run anywhere", meaning that complied java code can run on all platforms without the need for recompilation. Java is complied to bytecode that can run on any Java Vitural Machine (JVM). As of 2016 Java is the most popular programming language in the world with a reported 9 million developers worldwide. Java is largely used for server client based applications used by both Google and Facebook receiving 1.6 and 1.1 billion visitors respectively monthly.
+Java is a general purpose programming language that is designed to have as few implementation dependecies as possible. It is intended to allow developers to "Write once, Run anywhere", meaning that complied java code can run on all platforms without the need for recompilation. Java is complied to bytecode that can run on any Java Vitural Machine (JVM). As of 2016 Java is the most popular programming language in the world with a reported 9 million developers worldwide. Java is largely used for server client based applications used by both Google and Facebook receiving 1.6 and 1.1 billion visitors respectively monthly. We decided to use java for its versatility and large amount of online resources available. Its also the programming language that we are all very familiar with and having completed multiple projects during our time in GMIT eg. Porta cipher, database interfaces, Document simiality API.
 
 ## Architecture of the Solution
 ## Design Methodology
