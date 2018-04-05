@@ -51,7 +51,7 @@ public class StartUpWindowPractice extends JFrame {
 				login.setVisible(true);
 			}
 		});
-		
+		//launch sign up page
 		JButton btnNewButton = new JButton("Sign Up");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
@@ -61,8 +61,16 @@ public class StartUpWindowPractice extends JFrame {
 				signup.setVisible(true);
 			}
 		});
-		
+		//launch delete page
 		JButton btnNewButton_1 = new JButton("Delete Me From System");
+		btnNewButton_1.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent arg0) {
+				//launch delete page
+				Delete delete;
+				delete = new Delete();
+				delete.setVisible(true);
+			}
+		});
 		
 		JLabel lblWelcomeToThe = new JLabel("Welcome to the ChatYurt Messenger Application");
 		GroupLayout gl_contentPane = new GroupLayout(contentPane);
