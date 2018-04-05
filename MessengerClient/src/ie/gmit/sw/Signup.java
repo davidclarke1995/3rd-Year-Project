@@ -64,7 +64,7 @@ public class Signup extends JFrame {
 	public Signup() {
 		initComponents();
 		//connect to the server at local host
-	  //  acceptConnections();
+	    acceptConnections();
 		//createEvents();
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
@@ -103,8 +103,34 @@ public class Signup extends JFrame {
 				
 				//actionlistener for the sign up button
 				
+				String name = textField_1.getText();
+				String userName = textField_2.getText();
+				String password = passwordField_1.getText();
+
+				sendMessage("signup " + userName + " " + password);
+				
+				try {
+					message = (String) in.readObject();
+				} catch (ClassNotFoundException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				} catch (IOException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
+				
+				if(message.equals("signedUp")){
+					lblSignUpTop.setText("You are now signed up. Please log in to use our chat system.");
+					
+				}
+				else{
+					lblSignUpTop.setText("An error occured while trying to sign you up. Please try again later.");
+				}
+				
 				
 			}
+
+			
 		});// end action listener
 		GroupLayout gl_contentPaneMain = new GroupLayout(contentPaneMain);
 		gl_contentPaneMain.setHorizontalGroup(
@@ -192,9 +218,21 @@ public class Signup extends JFrame {
 				
 		
 	}//end accept connections
+	
+	public void sendMessage(String msg) {
+		try {
+			out.writeObject(msg);
+			// flush the output stream
+			out.flush();
+			System.out.println("client>" + msg);
+		} catch (IOException ioException) {
+			ioException.printStackTrace();
+		}
+		
+	}
 
-	private void outPutMessage(String msg) {
-		// TODO Auto-generated method stub
+	public void outPutMessage(String msg) {
+		System.out.println(msg);
 		
 	}//end output message
 }
