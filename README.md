@@ -18,6 +18,19 @@ The purpose of the System Requirements document is to specify the overall system
 
 System uses JFrame Java Platform that adds support for the JFC/Swing component architecture
 
+### Minimum Functional Requirments
+
+- System must allow users to log into the system with a username and password.
+- System must allow people to send a broadcast message to everyone connected to the server on the system.
+- System must give people the option to send a private message to specific people on the system. 
+- Users must have the option to delete themselves from the system.
+
+### Non Functional Requirments
+
+- Login page must be very simple and easy to use.
+- Chat section of the app must be basic enough that somone who has never used a computer before should be able to use this.
+- Develop the database to 3rd Normal Form for the implementation.
+
 ## Technology Used and Why
 
 ## Architecture of the Solution
