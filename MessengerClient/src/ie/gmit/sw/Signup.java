@@ -2,6 +2,8 @@ package ie.gmit.sw;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -95,6 +97,15 @@ public class Signup extends JFrame {
 		passwordField_1 = new JPasswordField();
 		
 		JButton btnSignMeUp = new JButton("Sign me up!");
+		btnSignMeUp.addActionListener(new ActionListener() {
+			// @SuppressWarnings("deprecation")
+			public void actionPerformed(ActionEvent arg0) {
+				
+				//actionlistener for the sign up button
+				
+				
+			}
+		});// end action listener
 		GroupLayout gl_contentPaneMain = new GroupLayout(contentPaneMain);
 		gl_contentPaneMain.setHorizontalGroup(
 			gl_contentPaneMain.createParallelGroup(Alignment.LEADING)
