@@ -55,6 +55,10 @@ public class StartUpWindowPractice extends JFrame {
 		JButton btnNewButton = new JButton("Sign Up");
 		btnNewButton.addActionListener(new ActionListener() {
 			public void actionPerformed(ActionEvent arg0) {
+				//launch signup page
+				Signup signup;
+				signup = new Signup();
+				signup.setVisible(true);
 			}
 		});
 		
