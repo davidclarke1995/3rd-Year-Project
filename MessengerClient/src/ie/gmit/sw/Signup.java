@@ -107,7 +107,7 @@ public class Signup extends JFrame {
 				String userName = textField_2.getText();
 				String password = passwordField_1.getText();
 
-				sendMessage("signup " + userName + " " + password);
+				sendMessage("signup " + name + " " + userName + " " + password);
 				
 				try {
 					message = (String) in.readObject();

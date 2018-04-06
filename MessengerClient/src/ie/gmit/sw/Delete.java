@@ -2,6 +2,8 @@ package ie.gmit.sw;
 
 import java.awt.BorderLayout;
 import java.awt.EventQueue;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.ObjectInputStream;
 import java.io.ObjectOutputStream;
@@ -56,7 +58,7 @@ public class Delete extends JFrame {
 		
 		initComponents();
 		//connect to the server at local host
-	   // acceptConnections();
+	    acceptConnections();
 		//createEvents();
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -82,6 +84,36 @@ public class Delete extends JFrame {
 			JLabel lblEnterYourDetails = new JLabel("Enter your details below:");
 			
 			JButton btnDelete = new JButton("Delete");
+			btnDelete.addActionListener(new ActionListener() {
+			
+					// @SuppressWarnings("deprecation")
+					public void actionPerformed(ActionEvent arg0) {
+						String userName = textField.getText();
+						String password = passwordField.getText();
+						
+						sendMessage("delete " + userName + " " + password);
+						
+						try {
+							message = (String) in.readObject();
+						} catch (ClassNotFoundException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						} catch (IOException e) {
+							// TODO Auto-generated catch block
+							e.printStackTrace();
+						}
+						
+						if(message.equals("deleted")){
+							lblEnterYourDetails.setText("You are now deleted from the system. Thank you for using our app.");
+							
+						}
+						else{
+							lblEnterYourDetails.setText("An error occured while trying to delete you. Please try again later.");
+						}
+						
+						
+					}
+			});// end action listener
 			GroupLayout gl_contentPane = new GroupLayout(contentPane);
 			gl_contentPane.setHorizontalGroup(
 				gl_contentPane.createParallelGroup(Alignment.LEADING)
