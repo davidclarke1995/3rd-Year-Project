@@ -83,6 +83,7 @@ public class Delete extends JFrame {
 			
 			JLabel lblEnterYourDetails = new JLabel("Enter your details below:");
 			
+			
 			JButton btnDelete = new JButton("Delete");
 			btnDelete.addActionListener(new ActionListener() {
 			
@@ -104,11 +105,11 @@ public class Delete extends JFrame {
 						}
 						
 						if(message.equals("deleted")){
-							lblEnterYourDetails.setText("You are now deleted from the system. Thank you for using our app.");
+							lblEnterYourDetails.setText("You are now deleted from the system.");
 							
 						}
 						else{
-							lblEnterYourDetails.setText("An error occured while trying to delete you. Please try again later.");
+							lblEnterYourDetails.setText("An error occured while trying to delete you.");
 						}
 						
 						
