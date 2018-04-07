@@ -46,11 +46,15 @@ Google Cloud Platform, offered by Google, is a suite of cloud computing services
 ### JavaScript
 JavaScript is a scripting or programming language that allows you to implement complex things on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc. — JavaScript is more than likely involved. It is the third layer of the layer cake of standard web technologies.
 
-### Why we used these technologies
-. We all agreed that Java was our strongest language so that was the bases and foundation of the project in terms of the coding language. 
-
-
 ## Architecture of the Solution
+What is Solution Architecture? According to Mike Rosen, chief scientist at Wilton Consulting Group, the definition for solutions architecture is still emerging, but it generally refers to the process and art of developing solutions that fit within the project architecture in terms of information architecture, integration requirements and so on. 
+
+In this project we had to decide how to arrange the parts of this project to be understandable. We discussed exactly how the project would work and how it would run aided by the use of hand made diagrams and YouTube tutorial ideas. We wanted to make sure that it would be user friendly, not complicated and productive. Once we understood and agreed how we were to tackle this app, we wanted to also make sure that the user is not confused in any shape or form. We have the interface well labelled and easy to follow so any first-timer should have no difficulties using it. Finally for any programmer reading through the code, we have commented as often as possible to help the programmer understand how the code works and how it is compiling.
+
+As for the integration of the project. Aligning eachothers code and putting it together was the main priority but one of the more difficult aspects was connecting the working database (written in sql) to the main code of the app (primarily written in java). 
+
+
+
 ## Design Methodology
 ## Features of the Implementation
 ## Limitations
