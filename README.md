@@ -34,7 +34,7 @@ System uses JFrame Java Platform that adds support for the JFC/Swing component a
 ## Technology Used and Why
 
 ### Java
-Java is a general purpose programming language that is designed to have as few implementation dependecies as possible. It is intended to allow developers to "Write once, Run anywhere", meaning that complied java code can run on all platforms without the need for recompilation. Java is complied to bytecode that can run on any Java Vitural Machine (JVM). As of 2016 Java is the most popular programming language in the world with a reported 9 million developers worldwide. Java is largely used for server client based applications used by both Google and Facebook receiving 1.6 and 1.1 billion visitors respectively monthly. We decided to use java for its versatility and large amount of online resources available. Its also the programming language that we are all very familiar with and having completed multiple projects during our time in GMIT eg. Porta cipher, database interfaces, Document simiality API.
+Java is a general purpose programming language that is designed to have as few implementation dependecies as possible. It is intended to allow developers to "Write once, Run anywhere", meaning that complied java code can run on all platforms without the need for recompilation. Java is complied to bytecode that can run on any Java Vitural Machine (JVM). As of 2016 Java is the most popular programming language in the world with a reported 9 million developers worldwide. Java is largely used for server client based applications used by both Google and Facebook receiving 1.6 and 1.1 billion visitors respectively monthly. As a group we collectively decided that we needed to write in a language that we were mostly familiar with. We all agreed to use java for its versatility and large amount of online resources available. It is by far the programming language that we are all very comfertable using and having completed multiple projects during our time in GMIT eg. Porta cipher, database interfaces, Document simiality API.
 
 ### MySQL
 MySQL is an open-source relational database management system. Its name is a combination of "My", the name of co-founder Michael Widenius's daughter, and "SQL", the abbreviation for Structured Query Language. At the time of writing of this README MySql is the second most popular database languaging for relational databases (https://db-engines.com/en/ranking). We picked MySql for its reliability and its popularlity amomng the programming community, it is also very easy to understand and has an abundance of resoucres both online and locally.
@@ -46,6 +46,8 @@ Google Cloud Platform, offered by Google, is a suite of cloud computing services
 ### JavaScript
 JavaScript is a scripting or programming language that allows you to implement complex things on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc. — JavaScript is more than likely involved. It is the third layer of the layer cake of standard web technologies.
 
+### Why we used these technologies
+. We all agreed that Java was our strongest language so that was the bases and foundation of the project in terms of the coding language. 
 
 
 ## Architecture of the Solution
