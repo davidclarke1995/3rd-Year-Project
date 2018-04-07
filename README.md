@@ -51,7 +51,7 @@ What is Solution Architecture? According to Mike Rosen, chief scientist at Wilto
 
 In this project we had to decide how to arrange the parts of this project to be understandable. We discussed exactly how the project would work and how it would run aided by the use of hand made diagrams and YouTube tutorial ideas. We wanted to make sure that it would be user friendly, not complicated and productive. Once we understood and agreed how we were to tackle this app, we wanted to also make sure that the user is not confused in any shape or form. We have the interface well labelled and easy to follow so any first-timer should have no difficulties using it. Finally for any programmer reading through the code, we have commented as often as possible to help the programmer understand how the code works and how it is compiling.
 
-As for the integration of the project. Aligning eachothers code and putting it together was the main priority but one of the more difficult aspects was connecting the working database (written in sql) to the main code of the app (primarily written in java). 
+As for the integration of the project, aligning eachothers code and putting it together was the main priority but one of the more difficult aspects was connecting the working database (written in sql) to the main code of the app (primarily written in java). 
 
 
 
