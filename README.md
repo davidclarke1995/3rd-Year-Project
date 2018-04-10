@@ -1,6 +1,9 @@
 # 3rd-Year-Project
 
-## Introduction
+## Table of contents:
+<a name="introduction"></a>Introduction
+
+## Introduction (#introduction)
 
 This is the 3rd year group project developed by David Clarke, Gary Connelly and Eoghan O'Connor. It is a group messenger app. Users can create a username and password and send private messages or send out a status in the form of a broadcast message for anyone to see. The clients can send a message to the server and the server sends it back out. The server is in a virtual machine in Google Cloud.
 
