@@ -1,7 +1,17 @@
 # 3rd-Year-Project
 
 ## Table of contents:
-<a name="introduction"></a>Introduction
+* Introduction
+* System reguirments
+* Technology Used and Why
+* Architecture of the Solution
+* Design Methodology
+* Installation
+* Limitations
+* Known Bugs
+* Recommendations for Future Development
+* Conclusions
+
 
 ## Introduction (#introduction)
 
