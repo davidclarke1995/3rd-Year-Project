@@ -104,7 +104,6 @@ class Provider extends Thread{
 			out.writeObject(msg);
 			//flush outputstream
 			out.flush();
-			//System.out.println("server>" + msg);
 		}
 		catch(IOException ioException){
 			ioException.printStackTrace();

@@ -72,16 +72,7 @@ private ArrayList<Provider> providerList = new ArrayList<>();
 					Provider provider = new Provider(this, connection, userName);
 					providerList.add(provider);
 					provider.start();
-					
-				//}
-				
-				
-					
-					
-				
-				
-				
-				
+						
 				
 			}
 		} catch (IOException e1) {
