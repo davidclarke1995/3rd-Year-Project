@@ -64,7 +64,7 @@ The first part of the system that we decided to tackle was the actual messaging 
 https://en.wikipedia.org/wiki/Agile_software_development#The_Agile_Manifesto .
 ```
 
-## Features of the Implementation
+## Installation
 ## Limitations
 ## Known Bugs
 ## Recommendations for Future Development
