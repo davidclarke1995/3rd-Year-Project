@@ -211,9 +211,6 @@ class Provider extends Thread{
 									}//end if
 									
 								//}//end if
-									
-								
-								
 							}//end for
 							
 						}//end else
