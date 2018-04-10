@@ -65,6 +65,8 @@ public class DBLogin extends Thread{
 				message = (String)in.readObject();
 				provider.outPutMessage(message);
 				String[] words = message.split(" ");
+				
+				//if login, if signup, if delete
 				provider.outPutMessage(words[1] + words[2]);
 				
 				String loginUserName = words[1];
