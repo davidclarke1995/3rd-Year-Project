@@ -65,6 +65,20 @@ https://en.wikipedia.org/wiki/Agile_software_development#The_Agile_Manifesto .
 ```
 
 ## Installation
+### From Github
+If you are downloading this project from get hub, you will need a desktop/ laptop and a java IDE.
+- In command prompt, navigate to wherever you would like the project to be save on your machine. 
+- Type in the following command: 
+
+```
+https://github.com/davidclarke1995/3rd-Year-Project.git
+```
+- Open the project is your preffered java IDE.
+- Navigate to the client project, and then to StartUpWindow class. 
+- Click run. 
+* If you cannot connect to the server this may be because my google cloud server has expired. However you can make your own server with the code in the server project, but you will need to create your own database locally. All the code for that can also be found on this repository under the DatabaseInterface folder.
+
+### From Executabe jar
 ## Limitations
 ## Known Bugs
 ## Recommendations for Future Development
