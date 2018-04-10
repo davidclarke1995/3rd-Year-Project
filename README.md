@@ -56,6 +56,14 @@ As for the integration of the project, aligning eachothers code and putting it t
 
 
 ## Design Methodology
+When creating this project, we were keeping some of the main agile principles in mind as we know that they are key principles that go into the vast majority of successful software projects in industry today. We achieved this by putting extreme emphisis and focus on adaptive planning, evolutionary development, early delivery, and continual improvement. We knew that the project had to posess the ability to be able to be flexible in the event of a change in the design or implementation of the system. This ment that our project had to be extremely responsive to change. This is much easier said than done, and took up a big portion of our planning of the project. How can we make this project flexible and responsive to change? I thought the best way to achieve this would be to tackle the harder more critical aspects of the project first. At least that way, if we got that working, it would be easier to make the rest of the requirments fit around this initial design. It also provided us with the critcal foresight that we would not have posessed if we had tackled some of the less crutial, or for lack of a better word "easy" first, then realising that it actually will not fit the system we want to build.
+
+The first part of the system that we decided to tackle was the actual messaging between multiple clients using java sockets. This was not an easy task but thankfully we had done some work on server sockets before in a module we had last year. However, the module we had last year only showed us how to operate an echo server so the real trick was trying to get the server to send messages to a particular client. The key to this was multithreading, but more on that in the wiki. once we got the system working to a stage where, using the console, I could send a message to my friends laptop and he would recieve it and be able to reply. Once we were able to do this, we say fit to move onto the database functionality of the system. This involved opening another port on the server but more on that in the wiki. Once we could successfully log into the system using a database that sat on the server, we moved onto developing the graphical user interface that would sit on top of the system. This proved to be more difficult than we origionally thought it would as it involved learning about JFrame, which is a framework we were very unfirmiliar with prior to developing this project. If you would like to know more about the agile methodology, you can read about it here -
+
+```
+https://en.wikipedia.org/wiki/Agile_software_development#The_Agile_Manifesto .
+```
+
 ## Features of the Implementation
 ## Limitations
 ## Known Bugs
