@@ -152,14 +152,24 @@ class Provider extends Thread{
 							//for each provider in the list, where the user name = the target of the direct message(words[1], send a message to that connection)
 							for(Provider provider : userList){
 								if(provider.getUsername().equals(words[1])){
-									if(!(message.equals(""))){
-										provider.sendMessage("Private message - " + getUsername() + ": " + message);
-									}//end if
+									//removing the prefix from the private message
+									String newWords = ""; 
+									for(String word: words) {
+										if(word.equals("DM") || word.equals(words[1])) {
+											System.out.println("if");
+											
+										}
+										else {
+											newWords += " " + word;
+										}
+									}
+										System.out.println(newWords);
+										provider.sendMessage("Private message - " + getUsername() + ": " + newWords);
 									
 								}//end if
 							
 							}//end for
-						}//end if
+						}//end if DM
 						
 						//to creat a group
 						else if(words[0].equals("CREATEGROUP")) {
