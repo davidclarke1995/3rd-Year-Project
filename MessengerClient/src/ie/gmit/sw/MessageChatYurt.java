@@ -150,13 +150,24 @@ public class MessageChatYurt extends JFrame {
                 public void actionPerformed(ActionEvent arg0) {
                     if (!(textField.getText().equals(""))) {
                         String message = textField.getText();
-                        textArea.append("\n\t\t\t--> " + "You: " + "\n");
-                       // textArea.append(message + "\n");
-                        //method for appending the text
-                        showMessage(message + "\n");
-                        textField.setText("");
-                        //send that message to the server for processing
-                        sendMessage(message);
+                        if(message.equals("#HELP")){
+                        	textArea.append("\n Commands: \n\n #SHOW- Displays everyone currently online. "
+                        			+ "\n\n DM(direct message) NameOfFriend + message - sends a direct message to NameOfFriend"
+                        			+ "\n\n *no prefix + message - if a message has no prefix it will by default send a broadcast message to everyone online on the system."
+                        			+ "\n\n FINISHED - logs you out of the system");
+                        	
+                        	textField.setText("");
+                        }
+                        else{
+                        	 textArea.append("\n\t\t\t--> " + "You: " + "\n");
+                             // textArea.append(message + "\n");
+                              //method for appending the text
+                              showMessage(message + "\n");
+                              textField.setText("");
+                              //send that message to the server for processing
+                              sendMessage(message);
+                        }//end else
+                       
                        
                     }
                 }
