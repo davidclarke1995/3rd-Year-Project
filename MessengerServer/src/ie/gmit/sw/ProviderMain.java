@@ -175,12 +175,17 @@ class Provider extends Thread{
 							System.out.println("inside #SHOW");
 							//------------------attemt to load online users-------------
 							List<Provider> userList = server.getProviderList();
-							String onlineUsers = "";
+							String onlineUsers = "Online - ";
 							for(Provider provider : userList){
+								System.out.println(onlineUsers);
 								//add username to the string
-								onlineUsers.concat( " " + provider.getUsername());	
+								//onlineUsers.concat( " " + provider.getUsername());	
+								System.out.println(provider.getUsername());
+								onlineUsers += provider.getUsername() + ", " ;
+								System.out.println(onlineUsers);
 							}//end for
-							System.out.println("between llops ///// + " + onlineUsers);
+							System.out.println("after llops /////");
+							
 							for(Provider provider: userList) {
 								
 								if(provider.getUsername() == this.getUsername()){
@@ -188,7 +193,7 @@ class Provider extends Thread{
 									System.out.println("inside second for loop");
 									System.out.println("///" + onlineUsers);
 										//provider.sendMessage(onlineUsers);
-									provider.sendMessage("echo");
+									provider.sendMessage(onlineUsers);
 									//}//end if
 									
 								}//end if
