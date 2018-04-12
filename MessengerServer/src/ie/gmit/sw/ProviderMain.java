@@ -154,8 +154,10 @@ class Provider extends Thread{
 								if(provider.getUsername().equals(words[1])){
 									//removing the prefix from the private message
 									String newWords = ""; 
+									int i = 0;
 									for(String word: words) {
-										if(word.equals("DM") || word.equals(words[1])) {
+										i++;
+										if(word.equals("DM") || i ==2) {
 											System.out.println("if");
 											
 										}
