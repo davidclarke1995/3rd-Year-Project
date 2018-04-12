@@ -269,6 +269,7 @@ class Provider extends Thread{
 	// loginUser function
 	public void loginUser(String[] words) {
 		//login username password = 3 words
+		/*
 		if(words.length == 3){
 			String userName = words[1];
 			String password = words[2];
@@ -312,6 +313,7 @@ class Provider extends Thread{
 			
 			
 		}//end if
+		*/
 		
 		
 	}
