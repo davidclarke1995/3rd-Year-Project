@@ -5,6 +5,7 @@ import java.awt.BorderLayout;
 import java.awt.EventQueue;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
 import javax.swing.JScrollPane;
 import javax.swing.border.EmptyBorder;
@@ -15,7 +16,7 @@ import javax.swing.ImageIcon;
 import java.awt.Toolkit;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-
+import java.awt.event.WindowEvent;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
@@ -110,7 +111,27 @@ public class MessageChatYurt extends JFrame {
 
 	public void initComponents() {
 		 setTitle("ChatYurt");
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		 /*
+		 @Override
+		 public void windowClosing(WindowEvent e){
+			 
+		 }
+		 */
+		 addWindowListener(new java.awt.event.WindowAdapter() {
+			    @Override
+			    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
+			    	/*
+			        if (JOptionPane.showConfirmDialog(frame, 
+			            "Are you sure to close this window?", "Really Closing?", 
+			            JOptionPane.YES_NO_OPTION,
+			            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
+			            System.exit(0);
+			        }
+			        */
+			    	sendMessage("FINISHED");
+			    }
+			});
 		setBounds(100, 100, 450, 300);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
