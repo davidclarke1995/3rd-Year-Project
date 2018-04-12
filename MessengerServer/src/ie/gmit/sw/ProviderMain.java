@@ -253,6 +253,8 @@ class Provider extends Thread{
 				e.printStackTrace();
 			}
 		}//end while
+		List<Provider> userList = server.getProviderList();
+		userList.remove(this);
 		
 	}//end handleConversation
 	
