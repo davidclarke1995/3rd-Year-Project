@@ -190,7 +190,7 @@ public class MessageChatYurt extends JFrame {
 	    	// 1. creating a socket to connect to the server
 	    	input = new Scanner(System.in);
 			try {
-				requestSocket = new Socket("35.190.197.5", 2004);
+				requestSocket = new Socket("35.195.193.152", 2004);
 				// requestSocket = new Socket("35.205.181.61", 2004);
 				//System.out.println("Connected to localhost in port 2004");
 				login.outPutMessage("Connected to localhost in port 2004");
