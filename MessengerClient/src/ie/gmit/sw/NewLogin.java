@@ -77,7 +77,7 @@ public class NewLogin extends JFrame {
 	}
 
 	public void initComponents() {
-		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
 		contentPaneMain = new JPanel();
 		contentPaneMain.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -182,6 +182,7 @@ public class NewLogin extends JFrame {
 		input = new Scanner(System.in);
 		try {//
 			requestSocket = new Socket("35.195.193.152", 80);
+			//requestSocket = new Socket("79.140.211.73", 2003);
 			// requestSocket = new Socket("35.205.181.61", 2004);
 			// System.out.println("Connected to localhost in port 2004");
 			outPutMessage("Connected to server yurt");

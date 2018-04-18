@@ -19,6 +19,7 @@ public class ProviderMain {
 		
 		//1. creating a server socket
 				int port = 80;
+				//int port = 2003;
 				int port1 = 2004;
 				int loginPort = 3333;
 				
@@ -196,7 +197,7 @@ class Provider extends Thread{
 								onlineUsers += provider.getUsername() + ", " ;
 								System.out.println(onlineUsers);
 							}//end for
-							System.out.println("after llops /////");
+							System.out.println("after loops /////");
 							
 							for(Provider provider: userList) {
 								

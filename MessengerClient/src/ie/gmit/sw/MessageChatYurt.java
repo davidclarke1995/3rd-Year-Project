@@ -31,6 +31,7 @@ import java.awt.EventQueue;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
+import javax.swing.JLabel;
 
 public class MessageChatYurt extends JFrame {
 	
@@ -51,6 +52,8 @@ public class MessageChatYurt extends JFrame {
 	NewLogin login = new NewLogin();
 	private JScrollPane scrollPane;
 	private JScrollPane scrollPane_1;
+	private JLabel label;
+	private JLabel lblNewLabel;
 	
 	
 
@@ -99,7 +102,7 @@ public class MessageChatYurt extends JFrame {
 			
 			//initialize components
 			initComponents();
-			
+			showMessage("'#HELP' for command list!");
 			//read messages in from the server in a loop
 			whileChatting();
 		} catch (IOException e) {
@@ -181,6 +184,11 @@ public class MessageChatYurt extends JFrame {
         scrollPane = new JScrollPane(textArea);
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
+        
+       
+        
+      //  label = new JLabel("New label");
+      //  contentPane.add(label, BorderLayout.NORTH);
         //contentPane.add(scrollPane);
         
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
@@ -224,6 +232,7 @@ public class MessageChatYurt extends JFrame {
 			try {
 				requestSocket = new Socket("35.195.193.152", 2004);
 				// requestSocket = new Socket("35.205.181.61", 2004);
+				//requestSocket = new Socket("79.140.211.73", 2004);
 				//System.out.println("Connected to localhost in port 2004");
 				login.outPutMessage("Connected to localhost in port 2004");
 				// 2. get Input and Output streams

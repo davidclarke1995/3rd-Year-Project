@@ -187,6 +187,7 @@ public class Signup extends JFrame {
 				input = new Scanner(System.in);
 				try {//
 					requestSocket = new Socket("35.195.193.152", 80);
+					//requestSocket = new Socket("79.140.211.73", 2003);
 					// requestSocket = new Socket("35.205.181.61", 2004);
 					//System.out.println("Connected to localhost in port 2004");
 					outPutMessage("Connected to server yurt");
