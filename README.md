@@ -56,9 +56,6 @@ MySQL is an open-source relational database management system. Its name is a com
 Google Cloud Platform, offered by Google, is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search and YouTube.
 Google Cloud Platform, offered by Google, is a suite of cloud computing services that runs on the same infrastructure that Google uses internally for its end-user products, such as Google Search and YouTube.
 
-### JavaScript
-JavaScript is a scripting or programming language that allows you to implement complex things on web pages — every time a web page does more than just sit there and display static information for you to look at — displaying timely content updates, interactive maps, animated 2D/3D graphics, scrolling video jukeboxes, etc. — JavaScript is more than likely involved. It is the third layer of the layer cake of standard web technologies.
-
 ## Architecture of the Solution
 What is Solution Architecture? According to Mike Rosen, chief scientist at Wilton Consulting Group, the definition for solutions architecture is still emerging, but it generally refers to the process and art of developing solutions that fit within the project architecture in terms of information architecture, integration requirements and so on. 
 
