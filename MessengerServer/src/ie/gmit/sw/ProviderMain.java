@@ -28,10 +28,7 @@ public class ProviderMain {
 				Dbserver.start();
 				//Server server = new Server(port1);
 				//server.start();
-				
-		
-		
-		
+	
 		
 	}
 
