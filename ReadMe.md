@@ -64,6 +64,10 @@ It will load this page
 
 ![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/LandingPage.png)
 
-- Selecting the the login button brings you to this page 
+- Selecting the the Set Up button brings you to this page 
 
 ![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/LoginPage.png)
+
+- The user can enter in their name and then choose what they want their username and password
+- Next the user clicks on the 'Sign me up!' button, they have now created an account that the database stores
+- The user can exit this window and select the 'Login' button to go to their account that they have just created
