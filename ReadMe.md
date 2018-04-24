@@ -41,6 +41,7 @@ If you are downloading this project from get hub, you will need a desktop/ lapto
 https://github.com/davidclarke1995/3rd-Year-Project.git
 ```
 Alternatively you can select this green button
+
 ![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/GitClone.PNG)
 
 - Open the project is your preffered java IDE.
