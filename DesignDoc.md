@@ -60,6 +60,14 @@ Ideally looking back, we would have had a web application. Using JFrame ended up
 
 ## Known Bugs
 
-# Server
+### Server
 
 One of the main bugs with the project is that when any user opens up the login page and logs into their account but then exits the original login page, this will actually stop the server itself and none of the other clients will be able to continue their messaging. In order to actually work the application, we recommend closing the windows chronologically. There shouldn’t be any issues with exiting any other windows but if the main login page (the first which is seen) is closed, then it causes errors with the server.
+
+## Conclusions
+
+Altogether we conclude that this project was a great step towards a future of working in the industry as a software developer. 
+
+
+## Recommendations for Future Development
+
