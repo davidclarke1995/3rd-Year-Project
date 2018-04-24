@@ -46,14 +46,18 @@ https://en.wikipedia.org/wiki/Agile_software_development#The_Agile_Manifesto .
 
 ## Limitations
 
--Encryption
+# Encryption
 
 What we had originally envisioned for the project was to have a messenger application that would have the client send a message to the server and encrypt it, the server would then send that message back out to another client with the option to decrypt the message before reading it. The two clients were to have a common key shared just between them to enter in before each message would become available. This would be like entering a password, this process is called end-to-end encryption and would be like WhatsApp with even more security as it requires the key to be entered with every message. 
 
--Group Messaging
+# Group Messaging
 
 Another feature that we really wanted to include was a group messaging option. This would work similarly to the DM feature (private messaging) but instead GM would be the prefix before selecting clients that are currently online to chat with in a private group chat and selecting a name to give the group message itself. We wanted the group chat to be saved in the database so that any time a client logs into the app, the app would remember the name of the group message and the members that are currently in it. After that the client would enter the GM prefix followed by the message they want to send to the rest of the clients. Also this ties into the delete feature as the client who set up the group message would be able to delete it by typing the name of the group chat followed by their own password into the delete page and the group chat would be wiped from the system. Something that we didn’t delve too deep into would have been the addition feature. We thought that once we got the group message feature working, we would discuss further about adding new clients into an already working group chat and also deleting them. 
 
--User Interface
+# User Interface
 
 Ideally looking back, we would have had a web application. Using JFrame ended up looking rather plain when it came to the user interface side of things. Preferably we would have liked to add a lot more styling to the interface but we decided to get the main features such as private messaging and delete working properly first. Time restrictions meant that we were not able to complete the envisioned style of the app itself. We hope to continue even after the deadline of this project with enhancing the look. 
+
+## Known Bugs
+
+One of the main bugs with the project is that when any user opens up the login page and logs into their account but then exits the original login page, this will actually stop the server itself and none of the other clients will be able to continue their messaging. In order to actually work the application, we recommend closing the windows chronologically. There shouldn’t be any issues with exiting any other windows but if the main login page (the first which is seen) is closed, then it causes errors with the server.
