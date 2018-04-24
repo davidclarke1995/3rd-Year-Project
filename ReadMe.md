@@ -40,18 +40,16 @@ If you are downloading this project from get hub, you will need a desktop/ lapto
 ```
 https://github.com/davidclarke1995/3rd-Year-Project.git
 ```
-Or select 
-
 - Open the project is your preffered java IDE.
 - Navigate to the client project, and then to StartUpWindow class. 
 - Click run. 
 * If you cannot connect to the server this may be because my google cloud server has expired. However you can make your own server with the code in the server project, but you will need to create your own database locally. All the code for that can also be found on this repository under the DatabaseInterface folder.
 
-### From Executable jar
 
 
-## Known Bugs
 ## Recommendations for Future Development
 ## Conclusions
+
+Altogether we conclude that this project was a great step towards a future of working in the industry as a software developer. 
 
 
