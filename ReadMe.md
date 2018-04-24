@@ -70,4 +70,8 @@ It will load this page
 
 - The user can enter in their name and then choose what they want their username and password
 - Next the user clicks on the 'Sign me up!' button, they have now created an account that the database stores
-- The user can exit this window and select the 'Login' button to go to their account that they have just created
+- The user can exit this window and select the 'Login' button to go to their account that they have just created and it will bring up this page 
+
+![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/Password.png)
+
+- 
