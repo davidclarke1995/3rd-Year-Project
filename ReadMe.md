@@ -72,6 +72,11 @@ It will load this page
 - Next the user clicks on the 'Sign me up!' button, they have now created an account that the database stores
 - The user can exit this window and select the 'Login' button to go to their account that they have just created and it will bring up this page 
 
-![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/Password.png)
+![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/SocialPage.png)
 
-- 
+- The user can enter their details (username and password) and select the 'Login' button
+- This will then show the messaging page itself which the user can enter in its commands and messages for the other clients
+
+![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/message.png)
+
+![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/Password.png)
