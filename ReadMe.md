@@ -73,4 +73,7 @@ It will load this page
 
 ![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/message.png)
 
+- The user can see a list of commands if they enter in '#HELP' 
+- Finally in the login page there is a 'Delete me from system' and when clicked the user can enter in the details of the account which they wish to delete which would be the username and password again. This completely deletes the account from the database.
+
 ![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/Password.png)
