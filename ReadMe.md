@@ -52,8 +52,5 @@ Alternatively you can select this green button
 
 
 ## Recommendations for Future Development
-## Conclusions
-
-Altogether we conclude that this project was a great step towards a future of working in the industry as a software developer. 
 
 
