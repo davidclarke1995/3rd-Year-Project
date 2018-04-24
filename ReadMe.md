@@ -32,7 +32,7 @@ The purpose of the System Requirements document is to specify the overall system
 System uses JFrame Java Platform that adds support for the JFC/Swing component architecture
 
 ## Installation
-### From Github
+
 If you are downloading this project from get hub, you will need a desktop/ laptop and a java IDE.
 - In command prompt, navigate to wherever you would like the project to be save on your machine. 
 - Type in the following command: 
@@ -54,5 +54,8 @@ It will load this page
 
 * If you cannot connect to the server this may be because my google cloud server has expired. However you can make your own server with the code in the server project, but you will need to create your own database locally. All the code for that can also be found on this repository under the DatabaseInterface folder.
 
+## How to run 
+
+- User must be on the StartUpWindowPractice
 
 
