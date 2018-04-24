@@ -67,7 +67,3 @@ One of the main bugs with the project is that when any user opens up the login p
 ## Conclusions
 
 Altogether we conclude that this project was a great step towards a future of working in the industry as a software developer. We learned alot about the basics of project building including time-keeping, workload-sharing, team management and patience. 
-
-
-## Recommendations for Future Development
-
