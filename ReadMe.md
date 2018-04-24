@@ -40,6 +40,8 @@ If you are downloading this project from get hub, you will need a desktop/ lapto
 ```
 https://github.com/davidclarke1995/3rd-Year-Project.git
 ```
+Or select 
+
 - Open the project is your preffered java IDE.
 - Navigate to the client project, and then to StartUpWindow class. 
 - Click run. 
