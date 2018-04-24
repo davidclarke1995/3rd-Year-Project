@@ -56,6 +56,8 @@ It will load this page
 
 ## How to run 
 
-- User must be on the StartUpWindowPractice
+- User must be on the StartUpWindowPractice.java and select the green arrow on the right hand side
+![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/greenArrow.png)
 
+- 
 
