@@ -2,6 +2,15 @@
 
 ## Table of Requirements 
 * Technology Used and Why
+* Function Requirements
+* Technology Used and Why
+* Architecture of the Solution
+* Design Methodology
+* Limitations
+* Known Bugs
+* Conclusions
+
+## Function Requirements
 
 ### Minimum Functional Requirments
 
