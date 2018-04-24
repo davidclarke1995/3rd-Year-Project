@@ -51,6 +51,3 @@ Alternatively you can select this green button
 
 
 
-## Recommendations for Future Development
-
-
