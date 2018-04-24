@@ -90,6 +90,11 @@ https://github.com/davidclarke1995/3rd-Year-Project.git
 
 ### From Executabe jar
 ## Limitations
+
+-Encryption
+
+What we had originally envisioned for the project was to have a messenger application that would have the client send a message to the server and encrypt it, the server would then send that message back out to another client with the option to decrypt the message before reading it. The two clients were to have a common key shared just between them to enter in before each message would become available. This would be like entering a password, this process is called end-to-end encryption and would be like WhatsApp with even more security as it requires the key to be entered with every message. 
+
 ## Known Bugs
 ## Recommendations for Future Development
 ## Conclusions
