@@ -1,7 +1,7 @@
 # Design Document
 
 ## Table of Requirements 
-* Technology Used and Why
+
 * Function Requirements
 * Technology Used and Why
 * Architecture of the Solution
