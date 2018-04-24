@@ -57,7 +57,13 @@ It will load this page
 ## How to run 
 
 - User must be on the StartUpWindowPractice.java and select the green arrow on the right hand side
+
 ![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/GreenArrow.PNG)
 
-- 
+- The initial start up window will appear and show the login page as seen above
 
+![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/LandingPage.png)
+
+- Selecting the the login button brings you to this page 
+
+![oops](https://github.com/davidclarke1995/3rd-Year-Project/blob/master/MessengerClient/Images/LoginPage.png)
