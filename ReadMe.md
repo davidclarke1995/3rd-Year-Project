@@ -3,14 +3,8 @@
 ## Table of contents:
 * Introduction
 * System reguirments
-* Technology Used and Why
-* Architecture of the Solution
-* Design Methodology
 * Installation
-* Limitations
-* Known Bugs
-* Recommendations for Future Development
-* Conclusions
+* How to run
 
 
 ## Introduction 
