@@ -1,35 +1,7 @@
-# 3rd-Year-Project
+# Design Document
 
-## Table of contents:
-* Introduction
-* System reguirments
+## Table of Requirements 
 * Technology Used and Why
-* Architecture of the Solution
-* Design Methodology
-* Installation
-* Limitations
-* Known Bugs
-* Recommendations for Future Development
-* Conclusions
-
-
-## Introduction 
-
-This is the 3rd year group project developed by David Clarke, Gary Connelly and Eoghan O'Connor. It is a group messenger app. Users can create a username and password and send private messages or send out a status in the form of a broadcast message for anyone to see. The clients can send a message to the server and the server sends it back out. The server is in a virtual machine in Google Cloud.
-
-## System Requirements
-
-### Purpose
-The purpose of the System Requirements document is to specify the overall system requirements that will govern the development and implementation of the system.  The document will also establish initial security, training, capacity and system architecture requirements, as well as, system acceptance criteria agreed upon be the project sponsor and key stakeholders.
-
-### Major System Conditions
-- System uses eclipse
-- System uses a virtual machine for the server
-- System requires normal internet connection
-
-### System Interface
-
-System uses JFrame Java Platform that adds support for the JFC/Swing component architecture
 
 ### Minimum Functional Requirments
 
@@ -63,8 +35,6 @@ In this project we had to decide how to arrange the parts of this project to be 
 
 As for the integration of the project, aligning eachothers code and putting it together was the main priority but one of the more difficult aspects was connecting the working database (written in sql) to the main code of the app (primarily written in java). 
 
-
-
 ## Design Methodology
 When creating this project, we were keeping some of the main agile principles in mind as we know that they are key principles that go into the vast majority of successful software projects in industry today. We achieved this by putting extreme emphisis and focus on adaptive planning, evolutionary development, early delivery, and continual improvement. We knew that the project had to posess the ability to be able to be flexible in the event of a change in the design or implementation of the system. This ment that our project had to be extremely responsive to change. This is much easier said than done, and took up a big portion of our planning of the project. How can we make this project flexible and responsive to change? I thought the best way to achieve this would be to tackle the harder more critical aspects of the project first. At least that way, if we got that working, it would be easier to make the rest of the requirments fit around this initial design. It also provided us with the critcal foresight that we would not have posessed if we had tackled some of the less crutial, or for lack of a better word "easy" first, then realising that it actually will not fit the system we want to build.
 
@@ -74,24 +44,12 @@ The first part of the system that we decided to tackle was the actual messaging 
 https://en.wikipedia.org/wiki/Agile_software_development#The_Agile_Manifesto .
 ```
 
-## Installation
-### From Github
-If you are downloading this project from get hub, you will need a desktop/ laptop and a java IDE.
-- In command prompt, navigate to wherever you would like the project to be save on your machine. 
-- Type in the following command: 
-
-```
-https://github.com/davidclarke1995/3rd-Year-Project.git
-```
-- Open the project is your preffered java IDE.
-- Navigate to the client project, and then to StartUpWindow class. 
-- Click run. 
-* If you cannot connect to the server this may be because my google cloud server has expired. However you can make your own server with the code in the server project, but you will need to create your own database locally. All the code for that can also be found on this repository under the DatabaseInterface folder.
-
-### From Executabe jar
 ## Limitations
-## Known Bugs
-## Recommendations for Future Development
-## Conclusions
 
+-Encryption
 
+What we had originally envisioned for the project was to have a messenger application that would have the client send a message to the server and encrypt it, the server would then send that message back out to another client with the option to decrypt the message before reading it. The two clients were to have a common key shared just between them to enter in before each message would become available. This would be like entering a password, this process is called end-to-end encryption and would be like WhatsApp with even more security as it requires the key to be entered with every message. 
+
+-Group Messaging
+
+Another feature that we really wanted to include was a group messaging option. This would work similarly to the DM feature (private messaging) but instead GM would be the prefix before selecting clients that are currently online to chat with in a private group chat and selecting a name to give the group message itself. We wanted the group chat to be saved in the database so that any time a client logs into the app, the app would remember the name of the group message and the members that are currently in it. After that the client would enter the GM prefix followed by the message they want to send to the rest of the clients. Also this ties into the delete feature as the client who set up the group message would be able to delete it by typing the name of the group chat followed by their own password into the delete page and the group chat would be wiped from the system. Something that we didn’t delve too deep into would have been the addition feature. We thought that once we got the group message feature working, we would discuss further about adding new clients into an already working group chat and also deleting them. 
