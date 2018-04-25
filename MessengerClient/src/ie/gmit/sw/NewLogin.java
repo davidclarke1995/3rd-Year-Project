@@ -33,23 +33,46 @@ import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 
+/**
+ * The Class NewLogin.
+ */
 public class NewLogin extends JFrame {
 
+	/** The content pane main. */
 	private JPanel contentPaneMain;
+	
+	/** The text field. */
 	private JTextField textField;
+	
+	/** The password field. */
 	private JPasswordField passwordField;
+	
+	/** The text area. */
 	private JTextArea textArea;
 
+	/** The request socket. */
 	// private JPanel contentPane;
 	Socket requestSocket;
+	
+	/** The out. */
 	ObjectOutputStream out;
+	
+	/** The in. */
 	ObjectInputStream in;
+	
+	/** The message. */
 	String message = "x";
+	
+	/** The contains. */
 	boolean contains = message.contains("x");
+	
+	/** The input. */
 	Scanner input;
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -76,6 +99,9 @@ public class NewLogin extends JFrame {
 
 	}
 
+	/**
+	 * Inits the components.
+	 */
 	public void initComponents() {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 450, 300);
@@ -119,28 +145,14 @@ public class NewLogin extends JFrame {
 				}
 
 				if (message.equals("log")) {
-					outPutMessage("////////////////////////////////" + userName);
 					MessageChatYurt myChat;
 					myChat = new MessageChatYurt(userName);
 					myChat.setVisible(true);
 				}
 
 				else {
-					// txtrHello.setText("Invalid username or password");
 					lblNewLabel.setText("Invalid username or password");
 				}
-
-				// hard coded user before connecting it to a database
-				/*
-				 * if(userName.equals("GaryConnelly") && password.equals("gary")
-				 * || userName.equals("DaveClarke") && password.equals("dave")){
-				 * MessageChatYurt myChat; myChat = new MessageChatYurt();
-				 * myChat.setVisible(true); //myChat.run();
-				 * 
-				 * } else{ //txtrHello.setText("Invalid username or password");
-				 * lblNewLabel.setText("Invalid username or password"); }
-				 */
-
 			}
 
 		});// end action listener
@@ -176,15 +188,16 @@ public class NewLogin extends JFrame {
 
 	}// end init components
 
+	/**
+	 * Accept connections.
+	 */
 	// accept connections method
 	private void acceptConnections() {
 		// 1. creating a socket to connect to the server
 		input = new Scanner(System.in);
 		try {//
 			requestSocket = new Socket("35.195.193.152", 80);
-			//requestSocket = new Socket("79.140.211.73", 2003);
-			// requestSocket = new Socket("35.205.181.61", 2004);
-			// System.out.println("Connected to localhost in port 2004");
+			
 			outPutMessage("Connected to server yurt");
 			// 2. get Input and Output streams
 			out = new ObjectOutputStream(requestSocket.getOutputStream());
@@ -194,26 +207,27 @@ public class NewLogin extends JFrame {
 			// connection successful
 			try {
 				message = (String) in.readObject();
-				// System.out.println("server>" + message);
-				outPutMessage("server>" + message);
+				
 				message = (String) in.readObject();
 				outPutMessage("server>" + message);
 			} catch (ClassNotFoundException e) {
-				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}
 
 			message = "x";
 		} catch (UnknownHostException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 
 	}
 
+	/**
+	 * Send message.
+	 *
+	 * @param msg the msg
+	 */
 	// implement send message method
 	private void sendMessage(String msg) {
 		try {
@@ -227,13 +241,22 @@ public class NewLogin extends JFrame {
 
 	}// end send message
 
-	///////////////////////////////////////////////////////////////////////////
 	// This method is for testing purposes only
+	/**
+	 * Out put message.
+	 *
+	 * @param message the message
+	 */
 	/////////////////////////////////////////////////
 	public void outPutMessage(String message) {
 		System.out.println(message);
 	}
 
+	/**
+	 * Out put int.
+	 *
+	 * @param i the i
+	 */
 	public void outPutInt(int i) {
 		System.out.println(i);
 	}
