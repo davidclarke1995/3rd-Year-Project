@@ -133,8 +133,8 @@ public class MessageChatYurt extends JFrame {
 		
 		this.userName = userName;
 		
-		login.outPutMessage("USER " + userName);
-		//sendMessage("USER " + userName);
+		//login.outPutMessage("USER " + userName);
+		sendMessage("USER " + userName);
 		
 		
 	    try {
@@ -144,6 +144,7 @@ public class MessageChatYurt extends JFrame {
 			
 			//initialize components
 			initComponents();
+			//initial prompt
 			showMessage("'#HELP' for command list!");
 			//read messages in from the server in a loop
 			whileChatting();
@@ -272,7 +273,6 @@ public class MessageChatYurt extends JFrame {
 					
 					sendMessage("USER " + getUserName());
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 				
@@ -358,10 +358,6 @@ public class MessageChatYurt extends JFrame {
     	};
     	
     	worker.execute();
-    		
-		
-    			
-		
 	}
 
 }//end class

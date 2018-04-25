@@ -29,9 +29,6 @@ public class Requester{
 	 */
 	Requester(){
 		
-//test
-
-		
 	}
 	
 	/**

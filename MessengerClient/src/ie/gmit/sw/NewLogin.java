@@ -137,10 +137,8 @@ public class NewLogin extends JFrame {
 				try {
 					message = (String) in.readObject();
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				}
 
@@ -222,7 +220,6 @@ public class NewLogin extends JFrame {
 		}
 
 	}
-
 	/**
 	 * Send message.
 	 *
