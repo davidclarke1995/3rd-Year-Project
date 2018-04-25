@@ -33,40 +33,83 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.JLabel;
 
+/**
+ * The Class MessageChatYurt.
+ */
 public class MessageChatYurt extends JFrame {
 	
 	
 
+	/** The content pane. */
 	private JPanel contentPane;
 	
+	/** The text field. */
 	//private JPanel contentPane;
     private JTextField textField;
+    
+    /** The text area. */
     private JTextArea textArea;
+    
+    /** The user name. */
     private String userName;
+    
+    /** The request socket. */
     Socket requestSocket;
+	
+	/** The out. */
 	ObjectOutputStream out;
+	
+	/** The in. */
 	ObjectInputStream in;
+	
+	/** The message. */
 	String message = "x";
+	
+	/** The contains. */
 	boolean contains = message.contains("x");
+	
+	/** The input. */
 	Scanner input;
+	
+	/** The login. */
 	NewLogin login = new NewLogin();
+	
+	/** The scroll pane. */
 	private JScrollPane scrollPane;
+	
+	/** The scroll pane 1. */
 	private JScrollPane scrollPane_1;
+	
+	/** The label. */
 	private JLabel label;
+	
+	/** The lbl new label. */
 	private JLabel lblNewLabel;
 	
 	
 
+	/**
+	 * Gets the user name.
+	 *
+	 * @return the user name
+	 */
 	public String getUserName() {
 		return userName;
 	}
 
+	/**
+	 * Sets the user name.
+	 *
+	 * @param userName the new user name
+	 */
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -83,6 +126,8 @@ public class MessageChatYurt extends JFrame {
 
 	/**
 	 * Create the frame.
+	 *
+	 * @param userName the user name
 	 */
 	public MessageChatYurt(String userName) {
 		
@@ -94,9 +139,6 @@ public class MessageChatYurt extends JFrame {
 		
 	    try {
 	    	
-	    	//sendMessage("USER " + userName);
-	    	
-	    	
 	    	//connect to the server at local host
 		    acceptConnections();
 			
@@ -106,32 +148,20 @@ public class MessageChatYurt extends JFrame {
 			//read messages in from the server in a loop
 			whileChatting();
 		} catch (IOException e) {
-			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
 		
 	}
 
+	/**
+	 * Inits the components.
+	 */
 	public void initComponents() {
 		 setTitle("ChatYurt");
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		 /*
-		 @Override
-		 public void windowClosing(WindowEvent e){
-			 
-		 }
-		 */
 		 addWindowListener(new java.awt.event.WindowAdapter() {
 			    @Override
 			    public void windowClosing(java.awt.event.WindowEvent windowEvent) {
-			    	/*
-			        if (JOptionPane.showConfirmDialog(frame, 
-			            "Are you sure to close this window?", "Really Closing?", 
-			            JOptionPane.YES_NO_OPTION,
-			            JOptionPane.QUESTION_MESSAGE) == JOptionPane.YES_OPTION){
-			            System.exit(0);
-			        }
-			        */
+			    	//send logout message to the server
 			    	sendMessage("FINISHED");
 			    }
 			});
@@ -185,16 +215,9 @@ public class MessageChatYurt extends JFrame {
         scrollPane.setVerticalScrollBarPolicy(JScrollPane.VERTICAL_SCROLLBAR_AS_NEEDED);
         scrollPane.setHorizontalScrollBarPolicy(JScrollPane.HORIZONTAL_SCROLLBAR_NEVER);
         
-       
-        
-      //  label = new JLabel("New label");
-      //  contentPane.add(label, BorderLayout.NORTH);
-        //contentPane.add(scrollPane);
         
         GroupLayout gl_contentPane = new GroupLayout(contentPane);
         
-       // scrollPane_1 = new JScrollPane();
-       // contentPane.add(scrollPane_1, BorderLayout.NORTH);
         gl_contentPane.setHorizontalGroup(
             gl_contentPane.createParallelGroup(Alignment.LEADING)
             .addGroup(Alignment.TRAILING, gl_contentPane.createSequentialGroup()
@@ -224,6 +247,9 @@ public class MessageChatYurt extends JFrame {
 		
 	}//end init components
 	
+	/**
+	 * Accept connections.
+	 */
 	//accept connection with the server
 	 public void acceptConnections() {
 	    	
@@ -231,9 +257,6 @@ public class MessageChatYurt extends JFrame {
 	    	input = new Scanner(System.in);
 			try {
 				requestSocket = new Socket("35.195.193.152", 2004);
-				// requestSocket = new Socket("35.205.181.61", 2004);
-				//requestSocket = new Socket("79.140.211.73", 2004);
-				//System.out.println("Connected to localhost in port 2004");
 				login.outPutMessage("Connected to localhost in port 2004");
 				// 2. get Input and Output streams
 				out = new ObjectOutputStream(requestSocket.getOutputStream());
@@ -244,10 +267,9 @@ public class MessageChatYurt extends JFrame {
 				try {
 					message = (String) in.readObject();
 					//System.out.println("server>" + message);
-					login.outPutMessage("server>" + message);
+					
 					message = (String) in.readObject();
-					login.outPutMessage("server>" + message);
-					login.outPutMessage("////inside do while " + getUserName());
+					
 					sendMessage("USER " + getUserName());
 				} catch (ClassNotFoundException e) {
 					// TODO Auto-generated catch block
@@ -265,6 +287,11 @@ public class MessageChatYurt extends JFrame {
 			
 	 }//end accept connections
 	
+	/**
+	 * Show message.
+	 *
+	 * @param text the text
+	 */
 	//show message method - threaded
 	public void showMessage(String text) {
 		SwingUtilities.invokeLater(
@@ -277,6 +304,11 @@ public class MessageChatYurt extends JFrame {
 		
 	}
 	
+	/**
+	 * Send message.
+	 *
+	 * @param msg the msg
+	 */
 	//send message method
 	public void sendMessage(String msg) {
 		try {
@@ -292,6 +324,11 @@ public class MessageChatYurt extends JFrame {
 	}//end send message
 	
 	
+	/**
+	 * While chatting.
+	 *
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	//while chatting
 	private void whileChatting() throws IOException {
     	SwingWorker<Void, Void> worker = new SwingWorker<Void, Void>(){
@@ -300,32 +337,10 @@ public class MessageChatYurt extends JFrame {
 			protected Void doInBackground() throws Exception {
 				int i = 0;
 				do {
-					//testing
-					 login.outPutMessage("inside do while ");
-					try {
-						//int data = in.available();
-						//if(data > 0){
-							//login.outPutMessage((String) data);
-						//while((message = (String)in.readObject()) != null){
-						login.outPutMessage(message);
+					try {	
 							message = (String) in.readObject();
-							login.outPutMessage("message recieved " + message);
-							
-							//-----------------------changed 02/04/2018-----comment out if not null
-							//if(!message.equals(null)) {
-								login.outPutMessage("inside if");
+									
 								showMessage("\n" + message);
-							//}
-							//else {
-							//	login.outPutMessage("END DO");
-							//}
-								//-----------------------(end)changed 02/04/2018-----comment out if not null
-							
-						//}
-						
-							login.outPutMessage("OUTSIDE if");
-							
-						//}
 						
 					} catch (ClassNotFoundException e) {
 						
@@ -337,7 +352,6 @@ public class MessageChatYurt extends JFrame {
 					}
 					
 				}while(!message.equals("FINISHED"));
-				login.outPutMessage("outside loop");
 				return null;
 			}
     		
@@ -350,4 +364,4 @@ public class MessageChatYurt extends JFrame {
 		
 	}
 
-}
+}//end class
