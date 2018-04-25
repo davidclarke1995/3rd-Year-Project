@@ -67,8 +67,8 @@ Another feature that we really wanted to include was a group messaging option. T
 
 Ideally looking back, we would have had a web application. Using JFrame ended up looking rather plain when it came to the user interface side of things. Preferably we would have liked to add a lot more styling to the interface but we decided to get the main features such as private messaging and delete working properly first. Time restrictions meant that we were not able to complete the envisioned style of the app itself. We hope to continue even after the deadline of this project with enhancing the look. 
 
-### Added Functionality
-Functionality added after the video was made included increased database security by encrypting passwords with AES encryption which is inbuilt into mySql. The database interface also now checks if the username entered is already in the database and prompts the user to enter a new, unique username.
+## Added Functionality
+Some functionality has been added to the project after the App recording  video was made. These changes included increased database security by encrypting passwords with AES encryption which is inbuilt into mySql. The database interface also now checks if the username entered is already in the database and prompts the user to enter a new, unique username.
 
 ## Known Bugs
 
