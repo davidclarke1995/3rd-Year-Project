@@ -10,9 +10,17 @@ import java.util.HashSet;
 import java.net.*;
 
 
-
-
+/**
+ * The Class ProviderMain.
+ */
 public class ProviderMain {
+	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	public static void main(String args[]) throws IOException
 	{
 	
@@ -121,26 +129,23 @@ class Provider extends Thread{
 				
 				//to append the username to the text
 				if(words[0].equals("USER")) {
-					
-					System.out.println("////////////////////////////" + words[1]);
+					//access the second word in the array
 					this.userName = words[1];
 					
 					//-------------------online status--------------------------
 					List<Provider> userList = server.getProviderList();
+					//to send it to everyone that is online except himself/herself
 					for(Provider provider : userList){
 						if(provider.getUsername() != this.getUsername()){
 							if(!(message.equals(""))){
 								provider.sendMessage(getUsername() + " " +  "is online!");
 							}//end if
 							
-						}//end if
-							
-						
-						
+						}//end if	
 					}//end for
 				}//end online status
 				
-				//test commit 
+				
 				else{
 					if(loggedIn){
 						//------------------Direct Messaging--------------------------
@@ -156,14 +161,13 @@ class Provider extends Thread{
 									for(String word: words) {
 										i++;
 										if(word.equals("DM") || i ==2) {
-											System.out.println("if");
-											
+											//do nothing	
 										}
 										else {
 											newWords += " " + word;
 										}
 									}
-										System.out.println(newWords);
+										
 										provider.sendMessage("Private message - " + getUsername() + ": " + newWords);
 									
 								}//end if
@@ -183,49 +187,43 @@ class Provider extends Thread{
 						
 						else if(words[0].equals("#SHOW")) {
 							System.out.println("inside #SHOW");
-							//------------------attemt to load online users-------------
+							//------------------load online users-------------
 							List<Provider> userList = server.getProviderList();
 							String onlineUsers = "Online - ";
 							for(Provider provider : userList){
-								System.out.println(onlineUsers);
-								//add username to the string
-								//onlineUsers.concat( " " + provider.getUsername());	
-								System.out.println(provider.getUsername());
+								//for each user that is online, append that user to the string along with that users username	
+								
 								onlineUsers += provider.getUsername() + ", " ;
-								System.out.println(onlineUsers);
+								
 							}//end for
-							System.out.println("after loops /////");
 							
 							for(Provider provider: userList) {
-								
+								//this message only goes to the same client that sent it
 								if(provider.getUsername() == this.getUsername()){
-									//if(!(message.equals(""))){
-									System.out.println("inside second for loop");
-									System.out.println("///" + onlineUsers);
-										//provider.sendMessage(onlineUsers);
+									
 									provider.sendMessage(onlineUsers);
-									//}//end if
+									
 									
 								}//end if
 								
-							}
+							}//end for
 							
 						}//end #SHOW
 						
 						
 						
 						else{
-							//-------------------attempting a broadcast message--------------------------
+							//-------------------broadcast message--------------------------
 							List<Provider> userList = server.getProviderList();
 							//for every connection to the server, send a message if they are logged in(if(loggedIn))
 							for(Provider provider : userList){
 								//send it to every instance, except the current instance(Because that would be just sending a message to yourself).
-								//if(provider.getUsername() != this.getUsername()){
+								if(provider.getUsername() != this.getUsername()){
 									if(!(message.equals(""))){
 										provider.sendMessage("Broadcast message - " + getUsername() + ": " +  message);
 									}//end if
 									
-								//}//end if
+								}//end if
 							}//end for
 							
 						}//end else
@@ -236,10 +234,6 @@ class Provider extends Thread{
 					{
 						sendMessage("please log in to continue");
 					}
-					
-					//sending a null message in order to continue the loop on the client side
-					//sendMessage(null);
-					
 				}
 				
 				//re-initialize words to null in preparation for the next inputstream
@@ -258,6 +252,11 @@ class Provider extends Thread{
 		
 	}//end handleConversation
 	
+	/**
+	 * Creates the group.
+	 *
+	 * @param words the words
+	 */
 	//create group method
 	private void createGroup(String[] words) {
 		String groupName = words[1];
@@ -272,64 +271,16 @@ class Provider extends Thread{
 		return groupList;
 	}
 	
-	
-	
+	/**
+	 * Gets the username.
+	 *
+	 * @return the username
+	 */
 	//function to return the user
 	public String getUsername(){
 		return userName;
 	}
-	// loginUser function
-	public void loginUser(String[] words) {
-		//login username password = 3 words
-		/*
-		if(words.length == 3){
-			String userName = words[1];
-			String password = words[2];
-			//hardcoded user objects later to be queried dynamically from a database
-			User gary = new User("GaryConnelly", "gary");
-			User dave = new User("DaveClarke", "dave");
-			User yogan = new User("EoghanConner", "yogan");
-			//new list of users and add each instance of user object
-			ArrayList<User> users = new ArrayList<User>();
-			users.add(gary);
-			users.add(dave);
-			users.add(yogan);
-			boolean isUser = false;
-			for(User user: users){
-				//if(userName.equals("GaryConnelly") && password.equals("gary") || userName.equals("DaveClarke") && password.equals("dave") || userName.equals("EoghanConnor") && password.equals("yogan"))
-				//checking username and password against the hardcoded user objects
-				if(userName.equals(user.getUserName()) && password.equals(user.getPassword())){
-					this.userName = userName;
-					
-					List<Provider> providerList = server.getProviderList();
-					//Provider provider;
-					//send all users on the connection a message that a new user has logged on
-					for(Provider provider : providerList){
-						provider.sendMessage(userName + " Is online");
-					}
-					
-					
-					for(Provider provider : providerList){
-						//again send a null message to continue client side loop
-						provider.sendMessage(null);
-					}
-					//set logged in booleans to true
-					isUser = true;
-					loggedIn = true;
-					//sendMessage("You are logged in as: " + userName);
-				}//end if for user validation	
-			}
-			if(isUser == false){
-				sendMessage("Invalid username or password!");
-			}
-			
-			
-		}//end if
-		*/
-		
-		
-	}
-
+	
 	//for testing only
 		public void outPutMessage(String message) {
 			System.out.println(message);
