@@ -23,27 +23,57 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 
+// TODO: Auto-generated Javadoc
+/**
+ * The Class Signup.
+ */
 public class Signup extends JFrame {
 
+	/** The content pane main. */
 	//private JPanel contentPane;
 	private JPanel contentPaneMain;
+	
+	/** The text field. */
 	private JTextField textField;
+	
+	/** The password field. */
 	private JPasswordField passwordField;
+	
+	/** The text area. */
 	private JTextArea textArea;
 	
+	/** The request socket. */
 	//private JPanel contentPane;
     Socket requestSocket;
+	
+	/** The out. */
 	ObjectOutputStream out;
+	
+	/** The in. */
 	ObjectInputStream in;
+	
+	/** The message. */
 	String message = "x";
+	
+	/** The contains. */
 	boolean contains = message.contains("x");
+	
+	/** The input. */
 	Scanner input;
+	
+	/** The text field 1. */
 	private JTextField textField_1;
+	
+	/** The text field 2. */
 	private JTextField textField_2;
+	
+	/** The password field 1. */
 	private JPasswordField passwordField_1;
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -72,6 +102,9 @@ public class Signup extends JFrame {
 	
 	
 
+	/**
+	 * Inits the components.
+	 */
 	//initialise components method
 	public void initComponents() {
 		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -112,10 +145,9 @@ public class Signup extends JFrame {
 				try {
 					message = (String) in.readObject();
 				} catch (ClassNotFoundException e) {
-					// TODO Auto-generated catch block
 					e.printStackTrace();
 				} catch (IOException e) {
-					// TODO Auto-generated catch block
+					
 					e.printStackTrace();
 				}
 				
@@ -182,14 +214,14 @@ public class Signup extends JFrame {
 		contentPaneMain.setLayout(gl_contentPaneMain);
 	}
 	
+	/**
+	 * Accept connections.
+	 */
 	private void acceptConnections() {
 		// 1. creating a socket to connect to the server
 				input = new Scanner(System.in);
 				try {//
 					requestSocket = new Socket("35.195.193.152", 80);
-					//requestSocket = new Socket("79.140.211.73", 2003);
-					// requestSocket = new Socket("35.205.181.61", 2004);
-					//System.out.println("Connected to localhost in port 2004");
 					outPutMessage("Connected to server yurt");
 					// 2. get Input and Output streams
 					out = new ObjectOutputStream(requestSocket.getOutputStream());
@@ -220,6 +252,11 @@ public class Signup extends JFrame {
 		
 	}//end accept connections
 	
+	/**
+	 * Send message.
+	 *
+	 * @param msg the msg
+	 */
 	public void sendMessage(String msg) {
 		try {
 			out.writeObject(msg);
@@ -232,6 +269,11 @@ public class Signup extends JFrame {
 		
 	}
 
+	/**
+	 * Out put message.
+	 *
+	 * @param msg the msg
+	 */
 	public void outPutMessage(String msg) {
 		System.out.println(msg);
 		
