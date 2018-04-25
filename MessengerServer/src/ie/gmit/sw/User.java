@@ -1,6 +1,5 @@
 package ie.gmit.sw;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class User.
  */
