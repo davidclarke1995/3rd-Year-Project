@@ -2,7 +2,7 @@ package ie.gmit.sw;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
-// TODO: Auto-generated Javadoc
+
 
 /**
  * The Class Requester.

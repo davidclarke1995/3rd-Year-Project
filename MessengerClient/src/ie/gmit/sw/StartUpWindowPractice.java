@@ -12,12 +12,18 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import javax.swing.JLabel;
 
+/**
+ * The Class StartUpWindowPractice.
+ */
 public class StartUpWindowPractice extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -41,7 +47,7 @@ public class StartUpWindowPractice extends JFrame {
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
 		setContentPane(contentPane);
-		
+		//launch login page
 		JButton btnLogin = new JButton("Login");
 		//add action listener to launch login page when login button is clicked
 		btnLogin.addActionListener(new ActionListener() {

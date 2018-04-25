@@ -23,7 +23,6 @@ import javax.swing.JLabel;
 import javax.swing.LayoutStyle.ComponentPlacement;
 import javax.swing.JButton;
 
-// TODO: Auto-generated Javadoc
 /**
  * The Class Signup.
  */
