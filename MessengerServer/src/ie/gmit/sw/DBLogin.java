@@ -86,7 +86,7 @@ public void run() {
 		   // System.out.println("1111");
 
 			   Statement stmt = conn.createStatement();
-			   ResultSet rs = stmt.executeQuery("SELECT * FROM userDetails");
+			   ResultSet rs = stmt.executeQuery("SELECT name, userName, AES_DECRYPT(password, 'YURT') FROM userDetails");
 			   User user = null;
 			   final ArrayList < User > users = new ArrayList < User > ();
 			   while (rs.next()) {
@@ -161,7 +161,7 @@ public void run() {
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "");
 				PreparedStatement stmt = null;
 
-				String sql = "INSERT INTO userDetails VALUES (? , ? , ?);";
+				String sql = "INSERT INTO userDetails (name, userName, password) VALUES (? , ? ,AES_ENCRYPT(?,'YURT'));";
 
 				stmt = conn.prepareStatement(sql);
 				stmt.setString(1, user.getName());
