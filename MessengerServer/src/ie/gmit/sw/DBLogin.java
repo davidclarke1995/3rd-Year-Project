@@ -22,44 +22,74 @@ import java.util.Arrays;
 import java.util.HashSet;
 import java.net.*;
 
-//import com.mysql.fabric.Server;
 
-//import ie.gmit.sw.Server;
-
+/**
+ * The Class DBLogin.
+ */
 public class DBLogin extends Thread{
  
-
-
+  /** The console. */
   Scanner console = new Scanner(System.in);
+  
+  /** The option. */
   int option = 0;
+  
+  /** The name. */
   String name = "";
+  
+  /** The user name. */
   String userName = "";
+  
+  /** The password. */
   String password = "";
+  
+  /** The login success. */
   boolean loginSuccess = false;
-  //boolean invalid = false;
+  
+  /** The counter. */
   int counter = 0;
+  
+  /** The connection. */
   Socket connection = null;
+  
+  /** The out. */
   ObjectOutputStream out;
+  
+  /** The in. */
   ObjectInputStream in;
+  
+  /** The message. */
   String message = " ";
+  
+  /** The server. */
   Server server;
+  
+  /**
+   * Instantiates a new DB login.
+   */
   public DBLogin() {}
   
+  /**
+   * Instantiates a new DB login.
+   *
+   * @param server the server
+   * @param s the s
+   */
   DBLogin(Server server, Socket s) {
 		connection = s;
 		this.server = server;
 	  }
   
 
+/* (non-Javadoc)
+ * @see java.lang.Thread#run()
+ */
 public void run() {
   try {
 
    
 	//2. Wait for connection
-		//System.out.println("Waiting for connection");
 	  Provider provider = new Provider();
-		
-		//System.out.println("Connection received from " + connection.getInetAddress().getHostName());
 	    provider.outPutMessage("Connection received from " + connection.getInetAddress().getHostName());
 		//3. get Input and Output streams
 		out = new ObjectOutputStream(connection.getOutputStream());
@@ -72,20 +102,21 @@ public void run() {
 		//read username and password and output to console
 		message = (String)in.readObject();
 		provider.outPutMessage(message);
+		//split the input message into the different words
 		String[] words = message.split(" ");
 		
-		
+		//if the first word is login
 		if(words[0].equals("login")) {
-			provider.outPutMessage(words[1] + words[2]);
-
+			//initialize the username and password
 			String loginUserName = words[1];
 			String loginPassword = words[2];
 			
 			Class.forName("com.mysql.jdbc.Driver");
+			//get a handle on the database
 			   Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "");
-		   // System.out.println("1111");
-
+		   
 			   Statement stmt = conn.createStatement();
+			   //write the query and decrypt the password
 			   ResultSet rs = stmt.executeQuery("SELECT name, userName, AES_DECRYPT(password, 'YURT') FROM userDetails");
 			   User user = null;
 			   final ArrayList < User > users = new ArrayList < User > ();
@@ -94,12 +125,10 @@ public void run() {
 			    user.setName(rs.getString(1));
 			    user.setUserName(rs.getString(2));
 			    user.setPassword(rs.getString(3));
-			    // System.out.println(user.getName() + " " + user.getPassword() + " " +
-			    // user.getPassword() );
 			    users.add(user);
 			    user = null;
 			   }
-			   
+			   // for each user in the user list
 			   for (User u: users) {
 					
 				    if (u.getUserName().equals(loginUserName) && u.getPassword().equals(loginPassword)) {
@@ -112,21 +141,9 @@ public void run() {
 				     
 				     counter ++;
 				     
-				     
-				
 				    } 
-				    
-				    
-				    /*
-				    else {
-				    	
-				    	provider.outPutMessage("nope");
-				    	sendMessage("nope");
-				    }
-				    */
-				
 				   }//end for users
-			   
+			   //if the user doesnt exist
 			   if(counter == 0) {
 				   provider.outPutMessage("nope");
 			   		sendMessage("nope");
@@ -145,22 +162,19 @@ public void run() {
 			try {
 
 				User user = new User();
-
-				//System.out.println("Please Enter a name: ");
 				name = words[1];
 				user.setName(name);
-				//System.out.println("Please Enter Username: ");
 				userName = words[2];
 				user.setUserName(userName);
-				//System.out.println("Please enter a password: ");
+				
 				password = words[3];
 				user.setPassword(password);
-				System.out.println(name + " " + userName + " " + password);
-
+				
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "");
 				PreparedStatement stmt = null;
-
+				
+				//encrypt the password as it is being inserted into the database
 				String sql = "INSERT INTO userDetails (name, userName, password) VALUES (? , ? ,AES_ENCRYPT(?,'YURT'));";
 
 				stmt = conn.prepareStatement(sql);
@@ -169,7 +183,7 @@ public void run() {
 				stmt.setString(3, user.getPassword());
 
 				stmt.execute();
-				
+				//if it is successful send the confirmation message
 				sendMessage("signedUp");
 
 			} catch (ClassNotFoundException e) {
@@ -185,18 +199,17 @@ public void run() {
 				String userName;
 				String password;
 
-				//System.out.println("Please Enter which userName you wish to delete: ");
 				userName = words[1];
 				password = words[2];
 				user.setUserName(userName);
 				user.setPassword(password);
-				// user.setUserName(condition);
 
 				Class.forName("com.mysql.jdbc.Driver");
 				Connection conn = DriverManager.getConnection("jdbc:mysql://localhost:3306/users", "root", "");
 				PreparedStatement stmt = null;
 
-				String delete = "DELETE FROM userDetails WHERE userName= ? AND password = ?;";
+				//making sure to decrypt the password
+				String delete = "DELETE FROM userDetails WHERE userName= ? AND AES_DECRYPT(password, 'YURT') = ?;";
 
 				stmt = conn.prepareStatement(delete);
 
@@ -205,7 +218,6 @@ public void run() {
 				
 				sendMessage("deleted");
 
-				//System.out.println(delete);
 				stmt.execute();
 
 			} catch (Exception e) {
@@ -219,43 +231,18 @@ public void run() {
 		
 		} catch (Exception e) {
 			   e.printStackTrace();
-			  }
- 
-			
-		//end if login
-			
-		
-		
-	/*
-	   System.out.println("Please enter username: ");
-	   loginUserName = console.next();
-	
-	   System.out.println("Please enter password: ");
-	   loginPassword = console.next();
-	*/
-	   
-	
-	  
-	   
-	   
-	
-	   //provider.outPutMessage(users.size());
-	
-	   /*
-	    * for(int i =0;i<=users.size();i++) { System.out.println(users.toString()); }
-	    */
-	
-	 
-	  
-  
-	  
-	  //end if
+			  }	
 	 }//end login user
   
 
 
+/**
+ * Send message.
+ *
+ * @param msg the msg
+ */
 public void sendMessage(String msg) {
-	{
+	
 		try{
 			out.writeObject(msg);
 			out.flush();
@@ -265,10 +252,7 @@ public void sendMessage(String msg) {
 			ioException.printStackTrace();
 		}
 	
-}
-
-
 }//end sendMessage
-}
+}//end class
 
 
