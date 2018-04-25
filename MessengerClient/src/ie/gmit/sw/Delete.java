@@ -21,21 +21,42 @@ import javax.swing.JPasswordField;
 import javax.swing.JLabel;
 import javax.swing.JButton;
 
+/**
+ * The Class Delete.
+ */
 public class Delete extends JFrame {
 
+	/** The content pane. */
 	private JPanel contentPane;
+	
+	/** The text field. */
 	private JTextField textField;
+	
+	/** The password field. */
 	private JPasswordField passwordField;
 	
-	 Socket requestSocket;
+	 /** The request socket. */
+ 	Socket requestSocket;
+		
+		/** The out. */
 		ObjectOutputStream out;
+		
+		/** The in. */
 		ObjectInputStream in;
+		
+		/** The message. */
 		String message = "x";
+		
+		/** The contains. */
 		boolean contains = message.contains("x");
+		
+		/** The input. */
 		Scanner input;
 
 	/**
 	 * Launch the application.
+	 *
+	 * @param args the arguments
 	 */
 	public static void main(String[] args) {
 		EventQueue.invokeLater(new Runnable() {
@@ -59,12 +80,13 @@ public class Delete extends JFrame {
 		initComponents();
 		//connect to the server at local host
 	    acceptConnections();
-		//createEvents();
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-		//setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		
 		
 	}
 	
+	/**
+	 * Inits the components.
+	 */
 	//initialise components method
 		public void initComponents() {
 			setBounds(100, 100, 450, 300);
@@ -152,6 +174,9 @@ public class Delete extends JFrame {
 			contentPane.setLayout(gl_contentPane);
 		}
 		
+		/**
+		 * Accept connections.
+		 */
 		private void acceptConnections() {
 			// 1. creating a socket to connect to the server
 					input = new Scanner(System.in);
@@ -190,6 +215,11 @@ public class Delete extends JFrame {
 			
 		}//end accept connections
 		
+		/**
+		 * Send message.
+		 *
+		 * @param msg the msg
+		 */
 		public void sendMessage(String msg) {
 			try {
 				out.writeObject(msg);
@@ -202,6 +232,11 @@ public class Delete extends JFrame {
 			
 		}
 		
+		/**
+		 * Out put message.
+		 *
+		 * @param msg the msg
+		 */
 		public void outPutMessage(String msg) {
 			System.out.println(msg);
 			
@@ -210,4 +245,4 @@ public class Delete extends JFrame {
 		
 		
 
-}
+}//end class
