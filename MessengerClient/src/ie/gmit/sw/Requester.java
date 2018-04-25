@@ -2,18 +2,41 @@ package ie.gmit.sw;
 import java.io.*;
 import java.net.*;
 import java.util.Scanner;
+// TODO: Auto-generated Javadoc
+
+/**
+ * The Class Requester.
+ */
 public class Requester{
+	
+	/** The request socket. */
 	Socket requestSocket;
+	
+	/** The out. */
 	ObjectOutputStream out;
- 	ObjectInputStream in;
- 	String message = "x";
- 	Scanner input;
+ 	
+	 /** The in. */
+	 ObjectInputStream in;
+ 	
+	 /** The message. */
+	 String message = "x";
+ 	
+	 /** The input. */
+	 Scanner input;
+	
+	/**
+	 * Instantiates a new requester.
+	 */
 	Requester(){
 		
 //test
 
 		
 	}
+	
+	/**
+	 * Run.
+	 */
 	void run()
 	{
 		input = new Scanner(System.in);
@@ -92,6 +115,12 @@ public class Requester{
 			}
 		}
 	}
+	
+	/**
+	 * Send message.
+	 *
+	 * @param msg the msg
+	 */
 	//access the output stream to send a message to the server for processing
 	void sendMessage(String msg)
 	{
@@ -106,12 +135,24 @@ public class Requester{
 		}
 	}
 	
+	/**
+	 * Out put.
+	 *
+	 * @param myMessage the my message
+	 */
 	////output the message with the "Server >" identifier to notify the client that it has come from the server
 	void outPut(String myMessage) {
 		System.out.println("Server > " + myMessage);
 		
 	}
 	
+	/**
+	 * Load online users.
+	 *
+	 * @param user the user
+	 * @throws ClassNotFoundException the class not found exception
+	 * @throws IOException Signals that an I/O exception has occurred.
+	 */
 	//function to load users
 	void loadOnlineUsers(String user) throws ClassNotFoundException, IOException{
 		String[] users = null;
@@ -127,6 +168,12 @@ public class Requester{
 		}
 	
 	}
+	
+	/**
+	 * The main method.
+	 *
+	 * @param args the arguments
+	 */
 	public static void main(String args[])
 	{
 		Requester client = new Requester();
@@ -134,29 +181,4 @@ public class Requester{
 	}
 }
 
-//message = (String)in.readObject();
 
-/*
-if(message.contains("Is online")){
-	//
-	outPut(message);
-	while(in.available()>0){
-		
-		message = (String)in.readObject();
-		outPut(message);
-	}
-	
-	//System.out.println("load online users");
-	//loadOnlineUsers(message);
-}
-*/
-
-//	outPut(message);
-
-//put a login function here to load all the users currently online
-//do a function to load an array of messages for the amount of users online
-
-
-
-
-//message = (String)in.readObject();
