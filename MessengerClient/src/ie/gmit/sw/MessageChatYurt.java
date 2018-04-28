@@ -134,7 +134,7 @@ public class MessageChatYurt extends JFrame {
 		this.userName = userName;
 		
 		//login.outPutMessage("USER " + userName);
-		sendMessage("USER " + userName);
+		
 		
 		
 	    try {
@@ -145,6 +145,7 @@ public class MessageChatYurt extends JFrame {
 			//initialize components
 			initComponents();
 			//initial prompt
+			//sendMessage("USER " + userName);
 			showMessage("'#HELP' for command list!");
 			//read messages in from the server in a loop
 			whileChatting();
