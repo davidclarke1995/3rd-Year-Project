@@ -344,11 +344,11 @@ public class MessageChatYurt extends JFrame {
 						
 					} catch (ClassNotFoundException e) {
 						
-						showMessage("\n message recieved in unknown format");
+						//showMessage("\n message recieved in unknown format");
 					} catch (IOException e) {
 						// TODO Auto-generated catch block
 						//e.printStackTrace();
-						showMessage("\n////////////// message recieved in unknown format");
+						//showMessage("\n////////////// message recieved in unknown format");
 					}
 					
 				}while(!message.equals("FINISHED"));
